@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwthoba3ck8p"]
+
+[ext_resource type="Texture2D" uid="uid://ppn8rcg0k5of" path="res://Scenes/medium.jpg" id="1_8vfs6"]
+[ext_resource type="Script" path="res://Scripts/loading_scene.gd" id="1_hqsea"]
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="2_nqdxk"]
+
+[node name="Loading Scene" type="Node2D"]
+script = ExtResource("1_hqsea")
+game_scene_path = "res://Scenes/land.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.113, 1.113)
+transform = Transform2D(1.113, 0, 0, 1.113, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_8vfs6")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.698039)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_top = 54.0
+offset_right = 1152.0
+offset_bottom = 584.0
+theme_override_colors/font_color = Color(0.803922, 0.392157, 0.341176, 1)
+theme_override_fonts/font = ExtResource("2_nqdxk")
+theme_override_font_sizes/font_size = 50
+text = "LOADING...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 256.0
+offset_top = 347.0
+offset_right = 896.0
+offset_bottom = 387.0
+theme_override_colors/font_color = Color(0.803922, 0.392157, 0.341176, 1)
+theme_override_fonts/font = ExtResource("2_nqdxk")

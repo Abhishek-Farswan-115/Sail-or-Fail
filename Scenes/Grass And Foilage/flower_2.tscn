@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://c10d73ehvns5s"]
+
+[ext_resource type="PackedScene" uid="uid://t2jmsxrgal3b" path="res://GLTF/Grass & foilage/Flower2.glb" id="1_mcbyp"]
+[ext_resource type="Material" uid="uid://b44pp3vi2tq1" path="res://Scenes/Grass And Foilage/leaf_flower.tres" id="2_qxbo7"]
+[ext_resource type="Material" uid="uid://boa17pms1om3w" path="res://Scenes/Grass And Foilage/flower_Texture.tres" id="3_oltq0"]
+[ext_resource type="Material" uid="uid://cv2fwu4sgxy6m" path="res://Scenes/Grass And Foilage/Red_flower.tres" id="4_pwar5"]
+
+[node name="Flower2" instance=ExtResource("1_mcbyp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Type_2_Flower_1_LOD0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qxbo7")
+surface_material_override/1 = ExtResource("3_oltq0")
+surface_material_override/2 = ExtResource("4_pwar5")

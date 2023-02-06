@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5ltn0lx15j23"]
+
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_yte5m"]
+[ext_resource type="StyleBox" uid="uid://upwb4d0vn62w" path="res://Scenes/UI/Button.tres" id="2_8hfd5"]
+[ext_resource type="StyleBox" uid="uid://b8nr6khqhcaes" path="res://Scenes/UI/Hover_button.tres" id="2_e34lw"]
+[ext_resource type="PackedScene" uid="uid://bwthoba3ck8p" path="res://Scenes/UI/loading_scene.tscn" id="3_16cyp"]
+[ext_resource type="PackedScene" uid="uid://5ba3gmmb05yq" path="res://Scenes/UI/Credits.tscn" id="3_nllc0"]
+[ext_resource type="Texture2D" uid="uid://cxhv4xvj1qcb2" path="res://Scenes/UI/Screenshot 2023-01-29 145116.png" id="4_4u6p8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r775n"]
+font = ExtResource("1_qkoix")
+font_size = 100
+font_color = Color(1, 1, 0.952941, 1)
+outline_size = 3
+outline_color = Color(0, 0.764706, 1, 1)
+
+[node name="Main_Menu" type="Node2D"]
+scale = Vector2(1.113, 1.113)
+script = ExtResource("1_yte5m")
+Credit_scene = ExtResource("3_nllc0")
+loading_scene = ExtResource("3_16cyp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 646.0
+texture = ExtResource("4_4u6p8")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 646.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.807843)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1151.0
+offset_bottom = 646.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Wonder Forest"
+label_settings = SubResource("LabelSettings_r775n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qkoix")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_8hfd5")
+theme_override_styles/hover = ExtResource("2_e34lw")
+text = "Start"
+icon_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Setting_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qkoix")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_8hfd5")
+theme_override_styles/hover = ExtResource("2_e34lw")
+text = "Settings"
+icon_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Credit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qkoix")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_8hfd5")
+theme_override_styles/hover = ExtResource("2_e34lw")
+text = "Credits
+"
+icon_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qkoix")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("2_8hfd5")
+theme_override_styles/hover = ExtResource("2_e34lw")
+text = "Quit"
+icon_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Credit_button" to="." method="_on_credit_button_button_up"]

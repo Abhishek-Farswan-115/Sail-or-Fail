@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://byxr0ai0xs188"]
+
+[ext_resource type="PackedScene" uid="uid://cufpm5c05uths" path="res://GLTF/TREE/Tree8.glb" id="1_lysqo"]
+[ext_resource type="Material" uid="uid://b47is7lv5vui4" path="res://Scenes/TREE/tree_Shader.tres" id="2_vidnv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f0ceo"]
+height = 4.9164
+radius = 0.404659
+
+[node name="Tree8" instance=ExtResource("1_lysqo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Broadleaf_Tree 5_Leaves_LOD0" parent="Dead_Tree_9_LOD0" index="0"]
+surface_material_override/0 = ExtResource("2_vidnv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 1.86264e-09, 0, 1, 0, 1.86265e-09, 4.44089e-16, 1, 0, 2.47806, 0)
+shape = SubResource("CylinderShape3D_f0ceo")

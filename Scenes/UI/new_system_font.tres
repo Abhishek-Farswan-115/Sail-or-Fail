@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://i0jcaok61go0"]
+
+[resource]
+font_names = PackedStringArray("Black Ops One")

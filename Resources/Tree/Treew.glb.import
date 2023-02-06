@@ -1,0 +1,35 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://demoourg7gl8b"
+path="res://.godot/imported/Treew.glb-92ee2fce1bba9c42e351ae01db33ff35.scn"
+
+[deps]
+
+source_file="res://GLTF/TREE/Treew.glb"
+dest_files=["res://.godot/imported/Treew.glb-92ee2fce1bba9c42e351ae01db33ff35.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=0.7
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:SM_Env_Tree_01": {
+"generate/physics": true
+}
+}
+}

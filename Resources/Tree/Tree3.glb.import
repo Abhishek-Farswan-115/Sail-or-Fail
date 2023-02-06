@@ -1,0 +1,36 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dsx4ww5535gmc"
+path="res://.godot/imported/Tree3.glb-41cdf6488cd24bd86ba2e563fc4ad001.scn"
+
+[deps]
+
+source_file="res://Resources/Tree/Tree3.glb"
+dest_files=["res://.godot/imported/Tree3.glb-41cdf6488cd24bd86ba2e563fc4ad001.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=0.7
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:SM_Env_Tree_02": {
+"generate/physics": true
+}
+}
+}

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq825hx5gai2v"]
+
+[ext_resource type="Texture2D" uid="uid://clqc5k4lxnpvc" path="res://Scenes/UI/barHorizontal_green_mid 200.png" id="1_qc7cn"]
+[ext_resource type="Script" path="res://Scenes/UI/enemy_health_bar.gd" id="2_fbc4g"]
+
+[node name="EnemyHealthBar" type="TextureProgressBar"]
+offset_right = 200.0
+offset_bottom = 26.0
+value = 100.0
+texture_progress = ExtResource("1_qc7cn")
+script = ExtResource("2_fbc4g")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

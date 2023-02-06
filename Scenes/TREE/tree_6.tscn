@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4sv84i7x2q8q"]
+
+[ext_resource type="PackedScene" uid="uid://b4vxnl1ica1lo" path="res://GLTF/TREE/Tree6.glb" id="1_m2ko0"]
+[ext_resource type="Material" uid="uid://b47is7lv5vui4" path="res://Scenes/TREE/tree_Shader.tres" id="2_0facv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f0ceo"]
+height = 4.9164
+radius = 0.404659
+
+[node name="Tree6" instance=ExtResource("1_m2ko0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Birch_Tree 3_Leaves_LOD0" parent="Dead_Tree_7_LOD0" index="0"]
+surface_material_override/0 = ExtResource("2_0facv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 1.86264e-09, 0, 1, 0, 1.86265e-09, 4.44089e-16, 1, 0, 2.47806, 0)
+shape = SubResource("CylinderShape3D_f0ceo")

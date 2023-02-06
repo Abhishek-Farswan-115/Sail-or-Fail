@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bga08wpced0fp"]
+
+[ext_resource type="PackedScene" uid="uid://dteqybuef2k0m" path="res://GLTF/Grass & foilage/Grass3.glb" id="1_pparp"]
+[ext_resource type="Material" uid="uid://bu0hjjpcli51k" path="res://Scenes/Grass And Foilage/grass_Script.tres" id="2_fvhtq"]
+
+[node name="Grass3" instance=ExtResource("1_pparp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Type_2_Grass_2_LOD0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_fvhtq")
