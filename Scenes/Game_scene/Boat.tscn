@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp8e135gq0ssq"]
+
+[ext_resource type="PackedScene" uid="uid://bnam3nqokrncn" path="res://Resources/lancha_low_poly.glb" id="1_b24uw"]
+
+[node name="lancha_low_poly" instance=ExtResource("1_b24uw")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)

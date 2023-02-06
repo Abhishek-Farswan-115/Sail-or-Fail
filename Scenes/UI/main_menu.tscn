@@ -1,12 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5ltn0lx15j23"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ltn0lx15j23"]
 
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_yte5m"]
 [ext_resource type="StyleBox" uid="uid://upwb4d0vn62w" path="res://Scenes/UI/Button.tres" id="2_8hfd5"]
 [ext_resource type="StyleBox" uid="uid://b8nr6khqhcaes" path="res://Scenes/UI/Hover_button.tres" id="2_e34lw"]
-[ext_resource type="PackedScene" uid="uid://bwthoba3ck8p" path="res://Scenes/UI/loading_scene.tscn" id="3_16cyp"]
-[ext_resource type="PackedScene" uid="uid://5ba3gmmb05yq" path="res://Scenes/UI/Credits.tscn" id="3_nllc0"]
-[ext_resource type="Texture2D" uid="uid://cxhv4xvj1qcb2" path="res://Scenes/UI/Screenshot 2023-01-29 145116.png" id="4_4u6p8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r775n"]
 font = ExtResource("1_qkoix")
@@ -16,17 +12,6 @@ outline_size = 3
 outline_color = Color(0, 0.764706, 1, 1)
 
 [node name="Main_Menu" type="Node2D"]
-scale = Vector2(1.113, 1.113)
-script = ExtResource("1_yte5m")
-Credit_scene = ExtResource("3_nllc0")
-loading_scene = ExtResource("3_16cyp")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1151.0
-offset_bottom = 646.0
-texture = ExtResource("4_4u6p8")
-ignore_texture_size = true
-stretch_mode = 6
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1151.0
@@ -50,7 +35,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Wonder Forest"
+text = "Sail or Fail"
 label_settings = SubResource("LabelSettings_r775n")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,6 +104,3 @@ theme_override_styles/normal = ExtResource("2_8hfd5")
 theme_override_styles/hover = ExtResource("2_e34lw")
 text = "Quit"
 icon_alignment = 1
-
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Credit_button" to="." method="_on_credit_button_button_up"]
