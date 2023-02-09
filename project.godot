@@ -33,6 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sail or Fail"
+run/main_scene="res://Scenes/Experimental/gameplay_test.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

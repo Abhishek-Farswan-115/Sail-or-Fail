@@ -29,11 +29,15 @@ theme_override_constants/margin_left = 200
 theme_override_constants/margin_right = 200
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+offset_left = 200.0
+offset_right = 951.0
+offset_bottom = 646.0
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 100.0
+offset_right = 751.0
+offset_bottom = 229.0
 theme_override_font_sizes/font_size = 100
 text = "Sail or Fail"
 label_settings = SubResource("LabelSettings_r775n")
@@ -41,17 +45,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 233.0
+offset_right = 751.0
+offset_bottom = 545.0
 theme_override_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 751.0
+offset_bottom = 63.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
 [node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
+offset_left = 250.0
+offset_right = 501.0
+offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("1_qkoix")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("2_8hfd5")
@@ -60,13 +69,17 @@ text = "Start"
 icon_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 83.0
+offset_right = 751.0
+offset_bottom = 146.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
 [node name="Setting_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
+offset_left = 250.0
+offset_right = 501.0
+offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("1_qkoix")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("2_8hfd5")
@@ -75,13 +88,17 @@ text = "Settings"
 icon_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 166.0
+offset_right = 751.0
+offset_bottom = 229.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
 [node name="Credit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
+offset_left = 250.0
+offset_right = 501.0
+offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("1_qkoix")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("2_8hfd5")
@@ -91,13 +108,17 @@ text = "Credits
 icon_alignment = 1
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 249.0
+offset_right = 751.0
+offset_bottom = 312.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
 [node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
-layout_mode = 2
+offset_left = 250.0
+offset_right = 501.0
+offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("1_qkoix")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("2_8hfd5")
