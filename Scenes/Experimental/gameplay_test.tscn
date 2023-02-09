@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://onenq754wy14"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_6k6im"]
+[ext_resource type="PackedScene" uid="uid://bkg6l5aknvaol" path="res://Scenes/boat/boat_player.tscn" id="2_eqpyr"]
+[ext_resource type="PackedScene" uid="uid://fehdbkbqq8lr" path="res://Scenes/terrain/terrain_controller.tscn" id="3_chsac"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ex7uf"]
+sky_top_color = Color(0.282353, 0.380392, 0.54902, 1)
+ground_bottom_color = Color(0.282353, 0.380392, 0.54902, 1)
+
+[sub_resource type="Sky" id="Sky_qigas"]
+sky_material = SubResource("ProceduralSkyMaterial_ex7uf")
+
+[sub_resource type="Environment" id="Environment_bi1fd"]
+background_mode = 2
+sky = SubResource("Sky_qigas")
+ambient_light_source = 3
+ambient_light_color = Color(0.298039, 0.298039, 0.298039, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.5
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_6k6im")
+
+[node name="env" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_bi1fd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env/WorldEnvironment"]
+transform = Transform3D(0.647402, 0.679851, -0.34449, 0, 0.451999, 0.892019, 0.762149, -0.577495, 0.292625, 0, 8.68044, 0)
+shadow_enabled = true
+
+[node name="boat" parent="." instance=ExtResource("2_eqpyr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 15)
+
+[node name="terrain_controller" parent="." instance=ExtResource("3_chsac")]
+num_terrain_blocks = 10
