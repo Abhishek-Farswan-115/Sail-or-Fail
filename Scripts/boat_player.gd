@@ -23,10 +23,11 @@ func _ready() -> void:
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
 	camera.top_level = true
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	poll_input()
 	
-	camera.global_position = lerp(camera.global_position, global_position + camera_offset, camera_follow_strength)
+	camera.global_position = lerp(camera.global_position, global_position + camera_offset, camera_follow_strength * delta * 60)
+	camera.rotation.z = lerp(camera.rotation.z, -movement_input * camera_rotation_amount, camera_rotation_speed * delta * 60)
 
 func poll_input() -> void:
 	movement_input = 0.0
@@ -37,7 +38,5 @@ func poll_input() -> void:
 
 func _physics_process(_delta: float) -> void:
 	velocity.x = lerp(velocity.x, movement_input * speed, acceleration)
-	
 	mesh.rotation.y = lerp(mesh.rotation.y, -movement_input * rotation_amount, rotation_speed)
-	camera.rotation.z = lerp(camera.rotation.z, -movement_input * camera_rotation_amount, camera_rotation_speed)
 	move_and_slide()
