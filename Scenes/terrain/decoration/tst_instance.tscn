@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://q4vq1mv8b6ky"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2ql2"]
+radial_segments = 16
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5mlb"]
+albedo_color = Color(0.701961, 1, 0.407843, 1)
+
+[node name="tst_instance" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_n2ql2")
+surface_material_override/0 = SubResource("StandardMaterial3D_y5mlb")
