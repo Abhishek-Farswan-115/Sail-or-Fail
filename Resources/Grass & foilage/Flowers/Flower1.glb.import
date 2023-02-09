@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://doin5lst08uob"
-path="res://.godot/imported/Tree1.glb-7759d307b7f998683336b520aec13790.scn"
+uid="uid://bhpu4pkonxt0t"
+path="res://.godot/imported/Flower1.glb-b9ee6a1557162eaf61cdaf0ebdd2ddc5.scn"
 
 [deps]
 
-source_file="res://Resources/Tree/Tree1.glb"
-dest_files=["res://.godot/imported/Tree1.glb-7759d307b7f998683336b520aec13790.scn"]
+source_file="res://Resources/Grass & foilage/Flowers/Flower1.glb"
+dest_files=["res://.godot/imported/Flower1.glb-b9ee6a1557162eaf61cdaf0ebdd2ddc5.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=0.7
+nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -27,11 +27,4 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Tree007": {
-"decomposition/precision": 8,
-"generate/physics": true
-}
-}
-}
+_subresources={}

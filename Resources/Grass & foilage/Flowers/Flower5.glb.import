@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dv0imx2uoq8ib"
-path="res://.godot/imported/Lotus.glb-5e33f3ddc3f89b15403980e61d6bc9c4.scn"
+uid="uid://0x8v3sa82sce"
+path="res://.godot/imported/Flower5.glb-3614e73a7e4235dd886a4a99f5a38717.scn"
 
 [deps]
 
-source_file="res://Resources/Grass & foilage/Lotus.glb"
-dest_files=["res://.godot/imported/Lotus.glb-5e33f3ddc3f89b15403980e61d6bc9c4.scn"]
+source_file="res://Resources/Grass & foilage/Flowers/Flower5.glb"
+dest_files=["res://.godot/imported/Flower5.glb-3614e73a7e4235dd886a4a99f5a38717.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=0.5
+nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

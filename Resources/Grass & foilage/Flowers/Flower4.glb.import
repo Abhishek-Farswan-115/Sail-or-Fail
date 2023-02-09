@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lpchlhrso2bv"
-path="res://.godot/imported/Tree4.glb-79bf59599b7f35e916a258ba65b7a0f1.scn"
+uid="uid://dmgyvdexk8gov"
+path="res://.godot/imported/Flower4.glb-463fbdf38f474ec8e25b30bdaac02976.scn"
 
 [deps]
 
-source_file="res://Resources/Tree/Tree4.glb"
-dest_files=["res://.godot/imported/Tree4.glb-79bf59599b7f35e916a258ba65b7a0f1.scn"]
+source_file="res://Resources/Grass & foilage/Flowers/Flower4.glb"
+dest_files=["res://.godot/imported/Flower4.glb-463fbdf38f474ec8e25b30bdaac02976.scn"]
 
 [params]
 
@@ -27,10 +27,4 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Tree003": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
