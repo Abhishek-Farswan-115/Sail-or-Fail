@@ -1,9 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://dee2ks8s572et"]
+[gd_scene load_steps=15 format=3 uid="uid://dx6j5s7vl01ah"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_wgurr"]
-[ext_resource type="PackedScene" uid="uid://dtqtdnwgkmtmw" path="res://Scenes/terrain/decoration/flower_08.tscn" id="2_t2k1n"]
-[ext_resource type="PackedScene" uid="uid://dihj4xyvmaw4u" path="res://Scenes/terrain/decoration/flower_10.tscn" id="3_pv141"]
-[ext_resource type="PackedScene" uid="uid://e8ck0c1knqui" path="res://Scenes/terrain/decoration/flower_11.tscn" id="4_tfdiy"]
+[ext_resource type="PackedScene" uid="uid://iv488iscoe18" path="res://Scenes/TREE/birch_1.tscn" id="2_md6kc"]
+[ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="3_vnumr"]
+[ext_resource type="PackedScene" uid="uid://xo6ilwc1naba" path="res://Scenes/TREE/birch_2.tscn" id="4_uaih7"]
+[ext_resource type="PackedScene" uid="uid://duvncxv3o07w7" path="res://Scenes/TREE/birch_3.tscn" id="5_7aug3"]
+
+[sub_resource type="Resource" id="Resource_aujar"]
+script = ExtResource("3_vnumr")
+instance_scene = ExtResource("2_md6kc")
+instance_number = 6
+
+[sub_resource type="Resource" id="Resource_wr1ce"]
+script = ExtResource("3_vnumr")
+instance_scene = ExtResource("4_uaih7")
+instance_number = 6
+
+[sub_resource type="Resource" id="Resource_3v7ih"]
+script = ExtResource("3_vnumr")
+instance_scene = ExtResource("5_7aug3")
+instance_number = 6
 
 [sub_resource type="BoxMesh" id="BoxMesh_jt2lr"]
 size = Vector3(8, 1, 43)
@@ -26,9 +42,8 @@ size = Vector2(7, 44)
 
 [node name="terrain_block_01" type="Node3D"]
 script = ExtResource("1_wgurr")
-size = Vector3(1, 1, 21.5)
-decoration_amount = 300
-decoration_scenes = [ExtResource("2_t2k1n"), ExtResource("3_pv141"), ExtResource("4_tfdiy")]
+size = Vector3(1, 1, 43)
+foliage_types = [SubResource("Resource_aujar"), SubResource("Resource_wr1ce"), SubResource("Resource_3v7ih")]
 
 [node name="River@CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376559, 0)

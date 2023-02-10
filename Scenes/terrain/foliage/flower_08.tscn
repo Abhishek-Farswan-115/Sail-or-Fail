@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqtdnwgkmtmw"]
+
+[ext_resource type="PackedScene" uid="uid://di5o4teylww0r" path="res://Resources/Grass & foilage/Flowers/Flower8.glb" id="1_1ptrm"]
+
+[node name="flower_08" type="Node3D"]
+
+[node name="Flower8" parent="." instance=ExtResource("1_1ptrm")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

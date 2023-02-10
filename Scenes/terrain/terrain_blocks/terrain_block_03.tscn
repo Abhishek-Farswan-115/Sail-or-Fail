@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpq0obb3u8dq8"]
+
+[ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_lckdk"]
+[ext_resource type="PackedScene" uid="uid://bq57l7cpkg4to" path="res://Scenes/TREE/pine_1.tscn" id="2_j0km3"]
+[ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="3_580wa"]
+[ext_resource type="PackedScene" uid="uid://b7ebflhg37c6r" path="res://Scenes/TREE/pine_2.tscn" id="4_wdj8v"]
+
+[sub_resource type="Resource" id="Resource_aujar"]
+script = ExtResource("3_580wa")
+instance_scene = ExtResource("2_j0km3")
+instance_number = 12
+
+[sub_resource type="Resource" id="Resource_wr1ce"]
+script = ExtResource("3_580wa")
+instance_scene = ExtResource("4_wdj8v")
+instance_number = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_jt2lr"]
+size = Vector3(8, 1, 43)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xylvx"]
+albedo_color = Color(0.443137, 0.658824, 1, 1)
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_l8mtg"]
+size = Vector3(7.5, 3, 43)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1q3n"]
+albedo_color = Color(0.360784, 0.223529, 0.0980392, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_da5nu"]
+size = Vector3(1, 4.5, 43)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gpgc6"]
+size = Vector2(7, 44)
+
+[node name="terrain_block_01" type="Node3D"]
+script = ExtResource("1_lckdk")
+size = Vector3(1, 1, 43)
+foliage_types = [SubResource("Resource_aujar"), SubResource("Resource_wr1ce")]
+
+[node name="River@CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376559, 0)
+mesh = SubResource("BoxMesh_jt2lr")
+material = SubResource("StandardMaterial3D_xylvx")
+
+[node name="River@CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.932972, 0.359948, 0, -0.359948, 0.932972, 0, 0, 0, 1, -7.98275, 0.071889, 0)
+mesh = SubResource("BoxMesh_l8mtg")
+material = SubResource("StandardMaterial3D_v1q3n")
+
+[node name="River@CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.683, 1.31, 0)
+mesh = SubResource("BoxMesh_l8mtg")
+material = SubResource("StandardMaterial3D_v1q3n")
+
+[node name="River@CSGMesh3D4" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.932954, -0.359997, 0, 0.359997, 0.932954, 0, 0, 0, 1, 7.983, 0.072, 0)
+mesh = SubResource("BoxMesh_l8mtg")
+material = SubResource("StandardMaterial3D_v1q3n")
+
+[node name="River@CSGMesh3D5" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6827, 1.30996, 0)
+mesh = SubResource("BoxMesh_l8mtg")
+material = SubResource("StandardMaterial3D_v1q3n")
+
+[node name="border" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+
+[node name="collision" type="CollisionShape3D" parent="border"]
+shape = SubResource("BoxShape3D_da5nu")
+
+[node name="border2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+
+[node name="collision" type="CollisionShape3D" parent="border2"]
+shape = SubResource("BoxShape3D_da5nu")
+
+[node name="decorations" type="Node3D" parent="."]
+
+[node name="editor" type="Node3D" parent="decorations"]
+
+[node name="plane_01" type="MeshInstance3D" parent="decorations/editor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.821, 2.849, 0)
+mesh = SubResource("PlaneMesh_gpgc6")
+skeleton = NodePath("../../..")
+
+[node name="plane_02" type="MeshInstance3D" parent="decorations/editor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8208, 2.84894, 0)
+mesh = SubResource("PlaneMesh_gpgc6")
+skeleton = NodePath("../../..")
