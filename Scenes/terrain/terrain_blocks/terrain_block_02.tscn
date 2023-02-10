@@ -95,3 +95,37 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8208, 2.84894, 0)
 mesh = SubResource("PlaneMesh_gpgc6")
 skeleton = NodePath("../../..")
+
+[node name="obstacles" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="obstacles"]
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(0.771447, 0, 0.636294, -0.0587527, 0.995728, 0.0712322, -0.633575, -0.0923358, 0.768151, 0, 0, 16.9292)
+use_collision = true
+size = Vector3(1.617, 1.218, 1.182)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(0.784333, 0, -0.62034, 0, 1, 0, 0.62034, 0, 0.784333, -2.09062, -9.53674e-07, 9.77713)
+use_collision = true
+size = Vector3(1.855, 3.172, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(0.249298, 0.960068, 0.126961, -0.0373763, -0.121464, 0.991892, 0.967705, -0.252022, 0.00560299, 1.74055, -9.53674e-07, -13.2651)
+use_collision = true
+size = Vector3(1.855, 3.172, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(0.893348, 0, 0.449366, 0, 1, 0, -0.449366, 0, 0.893348, -3.1057, -9.53674e-07, -18.0315)
+use_collision = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(0.979442, 0, -0.201728, 0, 1, 0, 0.201728, 0, 0.979442, 3.3423, -9.53674e-07, 9.28403)
+use_collision = true
+size = Vector3(1.855, 3.172, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="obstacles"]
+transform = Transform3D(-0.610351, -0.665442, -0.42972, 0.247506, 0.355118, -0.901461, 0.752471, -0.656566, -0.0520463, -3.13298, -9.53674e-07, -5.85582)
+use_collision = true
+size = Vector3(2.49, 3.172, 1)
