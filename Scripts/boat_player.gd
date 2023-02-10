@@ -38,7 +38,10 @@ func poll_input() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta * 60.0)
+	
 	velocity.y = 0.0
+	position.y = 0.0
 	velocity.z = 0.0
+	
 	mesh.rotation.y = lerp(mesh.rotation.y, -movement_input * rotation_amount, rotation_speed * delta * 60.0)
 	move_and_slide()
