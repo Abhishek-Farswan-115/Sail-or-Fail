@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ebflhg37c6r"]
+
+[ext_resource type="PackedScene" uid="uid://dmsuihrj13q6t" path="res://Resources/Tree/Pine_2.glb" id="1_thot2"]
+[ext_resource type="Material" uid="uid://d1so5ck5kqtyv" path="res://Scenes/TREE/pine_leaves.tres" id="2_md26n"]
+
+[node name="Pine_2" instance=ExtResource("1_thot2")]
+
+[node name="Pine_2_leaves" parent="Pine_22" index="0"]
+surface_material_override/0 = ExtResource("2_md26n")

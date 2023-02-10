@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b37v155halc7o"]
+
+[ext_resource type="PackedScene" uid="uid://1ajbxo6cyfqu" path="res://Resources/Tree/DeadBirch_1.glb" id="1_k40hc"]
+
+[node name="DeadBirch_1" instance=ExtResource("1_k40hc")]
