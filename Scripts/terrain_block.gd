@@ -1,16 +1,24 @@
 class_name TerrainBlock extends Node3D
 
 @export_category("Parameters")
-@export var size: Vector3 = Vector3.ONE
+@export var size: Vector3 = Vector3(8.0, 0.0, 43.0)
 
 @export_category("Decorations")
 @export var foliage_types: Array[FoliageType]
 
 @onready var editor_nodes: Node3D = $decorations/editor
 
+var noise: FastNoiseLite
+
+var height_magnitude: float = 10.0
+var height_offset: float = 4.0
+
+var player_relative_position: float = 0.0
+
 func _ready() -> void:
 	spawn_decoration()
 	editor_nodes.visible = false
+	generate_chunk()
 
 func spawn_decoration() -> void:
 	if foliage_types.is_empty(): return
@@ -25,3 +33,37 @@ func spawn_decoration() -> void:
 					dec.position = Vector3(randf_range(-i.mesh.size.x/2, i.mesh.size.x/2), 0.0, randf_range(-i.mesh.size.y/2, i.mesh.size.y/2))
 					dec.position += i.position
 					dec.rotation.y = randf_range(-PI, PI)
+
+func generate_chunk() -> void:
+	var plane_mesh = PlaneMesh.new()
+	plane_mesh.size = Vector2(size.x*2, size.z)
+	plane_mesh.subdivide_depth = size.x * 5.0
+	plane_mesh.subdivide_width = size.z * 5.0
+	
+	# TODO give a material
+	
+	var surface_tool = SurfaceTool.new()
+	var data_tool = MeshDataTool.new()
+	
+	surface_tool.create_from(plane_mesh, 0)
+	var array_plane := surface_tool.commit()
+	var _error := data_tool.create_from_surface(array_plane, 0)
+	
+	for i in range(data_tool.get_vertex_count()):
+		var vertex := data_tool.get_vertex(i)
+		vertex.y = (noise.get_noise_3d(vertex.x + position.x, vertex.y, vertex.z + player_relative_position) * height_magnitude) + height_offset
+		vertex.y = vertex.y * smoothstep(0.2, 1.0, abs(vertex.x / 14.0))
+		data_tool.set_vertex(i, vertex)
+	
+	array_plane.clear_surfaces()
+	
+	data_tool.commit_to_surface(array_plane)
+	surface_tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	surface_tool.create_from(array_plane, 0)
+	surface_tool.generate_normals()
+	surface_tool.generate_tangents()
+	
+	var mesh_instance := MeshInstance3D.new()
+	mesh_instance.mesh = surface_tool.commit()
+	mesh_instance.material_override = preload("res://Scenes/terrain/terrain_material.tres")
+	add_child(mesh_instance)

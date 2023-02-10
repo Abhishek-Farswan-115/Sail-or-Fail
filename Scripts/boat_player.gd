@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	camera.global_position = lerp(camera.global_position, global_position + camera_offset, camera_follow_strength * delta * 60.0)
 	camera.rotation.z = lerp(camera.rotation.z, -movement_input * camera_rotation_amount, camera_rotation_speed * delta * 60.0)
 	mesh.rotation.y = lerp(mesh.rotation.y, -movement_input * rotation_amount, rotation_speed * delta * 60.0)
+	mesh.rotation.z = lerp(mesh.rotation.z, movement_input * rotation_amount * 0.3, rotation_speed * delta * 60.0)
 
 func poll_input() -> void:
 	movement_input = 0.0
