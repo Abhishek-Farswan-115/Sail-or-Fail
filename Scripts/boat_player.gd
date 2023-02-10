@@ -26,8 +26,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	poll_input()
 	
-	camera.global_position = lerp(camera.global_position, global_position + camera_offset, camera_follow_strength * delta * 60)
-	camera.rotation.z = lerp(camera.rotation.z, -movement_input * camera_rotation_amount, camera_rotation_speed * delta * 60)
+	camera.global_position = lerp(camera.global_position, global_position + camera_offset, camera_follow_strength * delta * 60.0)
+	camera.rotation.z = lerp(camera.rotation.z, -movement_input * camera_rotation_amount, camera_rotation_speed * delta * 60.0)
 
 func poll_input() -> void:
 	movement_input = 0.0
@@ -36,7 +36,7 @@ func poll_input() -> void:
 	if Input.is_action_pressed("move_right"):
 		movement_input += 1.0
 
-func _physics_process(_delta: float) -> void:
-	velocity.x = lerp(velocity.x, movement_input * speed, acceleration)
-	mesh.rotation.y = lerp(mesh.rotation.y, -movement_input * rotation_amount, rotation_speed)
+func _physics_process(delta: float) -> void:
+	velocity.x = lerp(velocity.x, movement_input * speed, acceleration * delta * 60.0)
+	mesh.rotation.y = lerp(mesh.rotation.y, -movement_input * rotation_amount, rotation_speed * delta * 60.0)
 	move_and_slide()

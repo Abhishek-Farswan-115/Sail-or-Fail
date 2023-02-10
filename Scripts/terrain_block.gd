@@ -24,3 +24,4 @@ func spawn_decoration() -> void:
 				$decorations.add_child(dec)
 				dec.position = Vector3(randf_range(-i.mesh.size.x/2, i.mesh.size.x/2), 0.0, randf_range(-i.mesh.size.y/2, i.mesh.size.y/2))
 				dec.position += i.position
+				dec.rotation.y = randf_range(-PI, PI)
