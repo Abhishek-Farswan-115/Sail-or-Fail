@@ -4,10 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="1_6dnmu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
-radius = 0.75
-height = 4.5
+radius = 0.7
+height = 4.0
 
 [node name="boat" type="CharacterBody3D"]
+floor_constant_speed = true
+floor_max_angle = 0.0
+platform_on_leave = 2
 script = ExtResource("1_5qrm6")
 
 [node name="collision" type="CollisionShape3D" parent="."]
@@ -18,4 +21,4 @@ shape = SubResource("CapsuleShape3D_guxx3")
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.200304, 0)
 
 [node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(-1, -1.81762e-08, 8.55124e-08, 0, 0.978148, 0.207912, -8.74228e-08, 0.207912, -0.978148, 0, 0, 0)
+transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 0, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, 0, 0, 0)
