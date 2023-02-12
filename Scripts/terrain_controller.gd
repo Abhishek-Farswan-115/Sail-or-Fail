@@ -1,18 +1,19 @@
 class_name TerrainController extends Node3D
 
-var TerrainBlocks: Array = []
-var terrain_belt: Array[TerrainBlock] = []
-
 
 @export_category("Parameters")
 @export var terrain_velocity: float = 12.0
 @export var num_terrain_blocks = 5
 @export_dir var terrian_blocks_path = "res://Scenes/terrain/terrain_blocks/"
 
-var noise: FastNoiseLite
-var player_relative_position: float = 0.0
+var TerrainBlocks: Array
+var terrain_belt: Array[TerrainBlock]
+var unready_belt: Array[TerrainBlock]
 
+var noise: FastNoiseLite
 var time: float = 0.0
+
+var worker: Thread
 
 func _ready() -> void:
 	_load_terrain_scenes(terrian_blocks_path)
@@ -25,31 +26,40 @@ func _ready() -> void:
 	noise.fractal_lacunarity = 1.5
 	noise.frequency = 0.05
 	
+	worker = Thread.new()
+	
 	_init_blocks(num_terrain_blocks)
+
+func _process(delta: float) -> void:
+	if !worker.is_started() and !unready_belt.is_empty():
+		worker.start(Callable(self, "worker_load_block").bind([unready_belt[-1], worker]))
 
 func _physics_process(delta: float) -> void:
 	_progress_terrain(delta)
 
-func _process(delta: float) -> void:
-	time += delta
-
 func _init_blocks(number_of_blocks: int) -> void:
-	for block_index in number_of_blocks:
-		var last: TerrainBlock
-		if block_index != 0:
-			last = terrain_belt[block_index-1]
-		_create_block(!(block_index == 0), last)
+	_create_block(false, null)
+	while unready_belt.size() < number_of_blocks:
+		var last: TerrainBlock = unready_belt[0]
+		_create_block(true, last)
 
 func _progress_terrain(delta: float) -> void:
+	time += delta
+	
 	for block in terrain_belt:
 		block.position.z += terrain_velocity * delta
-
-	if terrain_belt[0].position.z >= terrain_belt[0].size.z*2:
-		var last_terrain = terrain_belt[-1]
-		var first_terrain = terrain_belt.pop_front()
-		
-		_create_block(true, last_terrain)
-		first_terrain.queue_free()
+	for block in unready_belt:
+		block.position.z += terrain_velocity * delta
+	
+	if terrain_belt.is_empty(): return
+	
+	for i in range(terrain_belt.size()):
+		if ! i in range(terrain_belt.size()): break
+		if terrain_belt[i].position.z >= terrain_belt[i].size.z*2:
+			var first: TerrainBlock = terrain_belt.pop_at(i)
+			var last: TerrainBlock = terrain_belt[-1]
+			_create_block(true, last)
+			first.queue_free()
 
 func _append_to_far_edge(target_block: TerrainBlock, appending_block: TerrainBlock) -> void:
 	appending_block.position.z = target_block.position.z - target_block.size.z/2 - appending_block.size.z/2
@@ -66,6 +76,18 @@ func _create_block(at_edge: bool, last: TerrainBlock) -> TerrainBlock:
 	if at_edge: _append_to_far_edge(last, block)
 	else: block.position.z = block.size.z / 2
 	block.player_relative_position = block.position.z - terrain_velocity * time
-	add_child(block)
-	terrain_belt.append(block)
+	unready_belt.push_front(block)
 	return block
+
+func worker_load_block(arr: Array) -> void:
+	var block:TerrainBlock = arr[0]
+	var thread:Thread = arr[1]
+	add_child(block)
+	print(str(block.name) + " loaded in thread")
+	call_deferred("worker_finish_load", block, thread)
+
+func worker_finish_load(block: TerrainBlock, thread:Thread) -> void:
+	terrain_belt.append(block)
+	var idx: int = unready_belt.find(block)
+	if idx >= 0: unready_belt.remove_at(idx)
+	thread.wait_to_finish()

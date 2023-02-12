@@ -16,8 +16,8 @@ var height_offset: float = 4.0
 var player_relative_position: float = 0.0
 
 func _ready() -> void:
-	spawn_decoration()
 	editor_nodes.visible = false
+	spawn_decoration()
 	generate_chunk()
 
 func spawn_decoration() -> void:
@@ -32,13 +32,14 @@ func spawn_decoration() -> void:
 					$decorations.add_child(dec)
 					dec.position = Vector3(randf_range(-i.mesh.size.x/2, i.mesh.size.x/2), 0.0, randf_range(-i.mesh.size.y/2, i.mesh.size.y/2))
 					dec.position += i.position
+					dec.position.y = height_for_position(dec.position.x, dec.position.z + player_relative_position) - 0.5
 					dec.rotation.y = randf_range(-PI, PI)
 
 func generate_chunk() -> void:
 	var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(size.x*2, size.z)
-	plane_mesh.subdivide_depth = size.x * 5.0
-	plane_mesh.subdivide_width = size.z * 5.0
+	plane_mesh.subdivide_depth = size.x * 2.0
+	plane_mesh.subdivide_width = size.z * 2.0
 	
 	# TODO give a material
 	
@@ -51,8 +52,7 @@ func generate_chunk() -> void:
 	
 	for i in range(data_tool.get_vertex_count()):
 		var vertex := data_tool.get_vertex(i)
-		vertex.y = (noise.get_noise_3d(vertex.x + position.x, vertex.y, vertex.z + player_relative_position) * height_magnitude) + height_offset
-		vertex.y = vertex.y * smoothstep(0.2, 1.0, abs(vertex.x / 14.0))
+		vertex.y = height_for_position(vertex.x + position.x, vertex.z + player_relative_position)
 		data_tool.set_vertex(i, vertex)
 	
 	array_plane.clear_surfaces()
@@ -67,3 +67,9 @@ func generate_chunk() -> void:
 	mesh_instance.mesh = surface_tool.commit()
 	mesh_instance.material_override = preload("res://Scenes/terrain/terrain_material.tres")
 	add_child(mesh_instance)
+
+func height_for_position(x: float, z: float) -> float:
+	var h: float
+	h = (noise.get_noise_2d(x, z) * height_magnitude) + height_offset
+	h = h * smoothstep(0.2, 1.0, abs(x / 14.0))
+	return h
