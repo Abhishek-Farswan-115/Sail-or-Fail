@@ -8,3 +8,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_capture"):
 		if DisplayServer.mouse_get_mode() == DisplayServer.MOUSE_MODE_CAPTURED: DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		else: DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
+
+
+func _on_boat_lives_lost() -> void:
+	get_tree().reload_current_scene()

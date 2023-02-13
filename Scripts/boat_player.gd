@@ -1,8 +1,11 @@
 class_name Boat extends CharacterBody3D
 
+signal lives_lost
+
 @export_category("Parameters")
 @export var speed: float = 12.0
 @export var acceleration: float = 0.1
+@export var lives: int = 3
 
 @export_category("Camera")
 @export var camera_offset: Vector3 = Vector3(0.0, 4.0, 7.0)
@@ -17,11 +20,13 @@ class_name Boat extends CharacterBody3D
 @onready var mesh: Node3D = $Boat_1
 @onready var camera: Camera3D = $camera
 
+var default_position: float
 var movement_input: float
 
 func _ready() -> void:
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
 	camera.top_level = true
+	default_position = position.z
 
 func _process(delta: float) -> void:
 	poll_input()
@@ -44,3 +49,12 @@ func _physics_process(delta: float) -> void:
 	position.y = 0.0
 	velocity.z = 0.0
 	move_and_slide()
+	
+	position.z = default_position
+
+
+func _on_cd_body_entered(body: Node3D) -> void:
+	if body.is_in_group("obstacle"):
+		lives -= 1
+		print(lives)
+		if lives <= 0: lives_lost.emit()

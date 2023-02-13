@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkg6l5aknvaol"]
+[gd_scene load_steps=5 format=3 uid="uid://bkg6l5aknvaol"]
 
 [ext_resource type="Script" path="res://Scripts/boat_player.gd" id="1_5qrm6"]
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
 radius = 0.7
 height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v2ws2"]
+radius = 0.6
 
 [node name="boat" type="CharacterBody3D"]
 floor_constant_speed = true
@@ -22,3 +25,11 @@ transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 0, 0.978148, 0.207912, 8.
 
 [node name="Boat_1" parent="." instance=ExtResource("2_qjgo2")]
 transform = Transform3D(8.7, 0, 0, 0, 8.7, 0, 0, 0, 8.7, 0, 0.4, 0)
+
+[node name="cd" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552466, 1.48601)
+
+[node name="collision" type="CollisionShape3D" parent="cd"]
+shape = SubResource("SphereShape3D_v2ws2")
+
+[connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]
