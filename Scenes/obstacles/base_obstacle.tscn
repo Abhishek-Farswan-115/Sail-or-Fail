@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mtfpx58xj3xi"]
+
+[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_1y7u0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1uoc"]
+
+[node name="base_obstacle" type="StaticBody3D"]
+script = ExtResource("1_1y7u0")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_w1uoc")

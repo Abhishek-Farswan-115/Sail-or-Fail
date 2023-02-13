@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
-radius = 0.7
+radius = 0.55
 height = 4.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v2ws2"]

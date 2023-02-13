@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpq0obb3u8dq8"]
+[gd_scene load_steps=17 format=3 uid="uid://dpq0obb3u8dq8"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_lckdk"]
 [ext_resource type="PackedScene" uid="uid://bq57l7cpkg4to" path="res://Scenes/TREE/pine_1.tscn" id="2_j0km3"]
 [ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="3_580wa"]
 [ext_resource type="PackedScene" uid="uid://b7ebflhg37c6r" path="res://Scenes/TREE/pine_2.tscn" id="4_wdj8v"]
+[ext_resource type="PackedScene" uid="uid://bc152gtjb5sp6" path="res://Scenes/obstacles/big_rock.tscn" id="5_hkum8"]
+[ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="6_j4neq"]
+[ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="7_ircll"]
+[ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="8_r3hl0"]
 
 [sub_resource type="Resource" id="Resource_aujar"]
 script = ExtResource("3_580wa")
@@ -29,7 +33,7 @@ size = Vector3(7.5, 3, 43)
 albedo_color = Color(0.360784, 0.223529, 0.0980392, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da5nu"]
-size = Vector3(1, 4.5, 43)
+size = Vector3(0.5, 4.5, 43)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gpgc6"]
 size = Vector2(7, 44)
@@ -69,13 +73,13 @@ mesh = SubResource("BoxMesh_l8mtg")
 material = SubResource("StandardMaterial3D_v1q3n")
 
 [node name="border" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border"]
 shape = SubResource("BoxShape3D_da5nu")
 
 [node name="border2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border2"]
 shape = SubResource("BoxShape3D_da5nu")
@@ -97,36 +101,35 @@ skeleton = NodePath("../../..")
 [node name="obstacles" type="Node3D" parent="."]
 transform = Transform3D(-0.999758, 0, -0.0220068, 0, 1, 0, 0.0220068, 0, -0.999758, 0.870669, 0, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(0.480162, 0, -0.87718, 0, 1, 0, 0.87718, 0, 0.480162, 0, 0.198129, 0)
-use_collision = true
-size = Vector3(1.392, 1, 1)
+[node name="big_rock" parent="obstacles" instance=ExtResource("5_hkum8")]
+transform = Transform3D(-0.0911368, -0.936863, -0.337612, -0.131702, 0.347385, -0.928428, 0.987091, -0.0401495, -0.155046, -3.80695, 1.13795, 15.3935)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(0.784333, 0, -0.62034, 0, 1, 0, 0.62034, 0, 0.784333, -2.87073, -0.774746, 16.542)
-use_collision = true
-size = Vector3(1.855, 3.172, 1)
+[node name="big_rock2" parent="obstacles" instance=ExtResource("5_hkum8")]
+transform = Transform3D(-0.888481, 0, 0.458914, 0, 1, 0, -0.458914, 0, -0.888481, 0.442833, -1.72455, -7.48695)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(-0.496798, 0.538359, -0.680707, 0.807445, -0.000820322, -0.589943, -0.31816, -0.842715, -0.434288, 2.07495, -0.242413, 8.63445)
-use_collision = true
-size = Vector3(1.332, 3.172, 1.942)
+[node name="small_rock" parent="obstacles" instance=ExtResource("6_j4neq")]
+transform = Transform3D(-0.701592, -0.371894, 0.607836, -0.398306, 0.911977, 0.0982341, -0.590865, -0.173184, -0.787964, -2.8612, -0.145095, 6.75889)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(0.249298, 0.960068, 0.126961, -0.0373763, -0.121464, 0.991892, 0.967705, -0.252022, 0.00560299, 3.33888, 9.53675e-07, -17.2003)
-use_collision = true
-size = Vector3(1.855, 3.172, 1)
+[node name="small_rock2" parent="obstacles" instance=ExtResource("6_j4neq")]
+transform = Transform3D(0.623524, -0.1993, -0.755975, -0.0889948, 0.942583, -0.321898, 0.776723, 0.267989, 0.569986, 3.32893, 0, 3.1381)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(0.893348, 0, 0.449366, 0, 1, 0, -0.449366, 0, 0.893348, -2.32336, 1.43051e-06, -17.3181)
-use_collision = true
+[node name="small_rock3" parent="obstacles" instance=ExtResource("6_j4neq")]
+transform = Transform3D(-0.0193021, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0193021, 3.34075, -0.748898, -19.4392)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(0.0545589, 0.757473, 0.650583, -0.0378303, 0.652654, -0.756711, -0.997794, 0.0166736, 0.0642635, 3.71001, -0.247507, -7.42089)
-use_collision = true
-size = Vector3(1.855, 3.172, 1)
+[node name="stone" parent="obstacles" instance=ExtResource("7_ircll")]
+transform = Transform3D(0.697953, 0, 0.716143, 0, 1, 0, -0.716143, 0, 0.697953, 4.7153, -9.53674e-07, -14.9329)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-transform = Transform3D(-0.610351, -0.665442, -0.42972, 0.247506, 0.355118, -0.901461, 0.752471, -0.656566, -0.0520463, -2.3026, 9.53675e-07, -5.83754)
-use_collision = true
-size = Vector3(2.49, 3.172, 1)
+[node name="stone2" parent="obstacles" instance=ExtResource("7_ircll")]
+transform = Transform3D(0.96777, 0, -0.251833, 0, 1, 0, 0.251833, 0, 0.96777, -2.70117, 0, -2.0333)
+
+[node name="stone3" parent="obstacles" instance=ExtResource("7_ircll")]
+transform = Transform3D(-0.546115, -0.737895, 0.396572, 0.460272, -0.659846, -0.59393, 0.699935, -0.141823, 0.699983, -1.42894, 0.582021, 12.7028)
+
+[node name="log" parent="obstacles" instance=ExtResource("8_r3hl0")]
+transform = Transform3D(0.268281, 0.24206, -0.932434, -0.0774864, 0.970203, 0.22957, 0.960219, 0.0106617, 0.279043, 3.03824, 0, 18.3225)
+
+[node name="log3" parent="obstacles" instance=ExtResource("8_r3hl0")]
+transform = Transform3D(0.86992, -0.462649, 0.170871, -0.463953, -0.885181, -0.0346881, 0.1673, -0.0491001, -0.984683, 3.33234, 0.316957, 10.3027)
+
+[node name="log2" parent="obstacles" instance=ExtResource("8_r3hl0")]
+transform = Transform3D(0.881869, 0.106772, -0.459246, -0.102247, 0.99415, 0.0347945, 0.460274, 0.0162724, 0.887628, -1.78548, 0.0799704, -13.0318)

@@ -84,7 +84,7 @@ func shake_camera(intensity: float, cap: float = 1.0) -> void:
 	trauma = clamp(trauma + intensity, 0.0, cap)
 
 func _on_cd_body_entered(body: Node3D) -> void:
-	if body.is_in_group("obstacle"):
+	if body is Obstacle:
 		shake_camera(0.5)
 		lives -= 1
 		if lives <= 0: lives_lost.emit()
