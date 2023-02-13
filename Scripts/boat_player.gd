@@ -14,7 +14,7 @@ class_name Boat extends CharacterBody3D
 @export var rotation_amount: float = 0.2
 @export var rotation_speed: float = 0.15
 
-@onready var mesh: Node3D = $lancha_low_poly
+@onready var mesh: Node3D = $Boat_1
 @onready var camera: Camera3D = $camera
 
 var movement_input: float

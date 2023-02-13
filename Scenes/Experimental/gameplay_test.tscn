@@ -38,7 +38,7 @@ environment = SubResource("Environment_bi1fd")
 transform = Transform3D(0.647402, 0.679851, -0.34449, 0, 0.451999, 0.892019, 0.762149, -0.577495, 0.292625, 0, 8.68044, 0)
 
 [node name="boat" parent="." instance=ExtResource("2_eqpyr")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 15)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 15)
 
 [node name="terrain_controller" parent="." instance=ExtResource("3_chsac")]
 num_terrain_blocks = 10
