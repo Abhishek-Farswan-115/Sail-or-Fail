@@ -98,10 +98,9 @@ skeleton = NodePath("../../..")
 transform = Transform3D(-0.999758, 0, -0.0220068, 0, 1, 0, 0.0220068, 0, -0.999758, 0.870669, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
+transform = Transform3D(0.480162, 0, -0.87718, 0, 1, 0, 0.87718, 0, 0.480162, 0, 0.198127, 0)
 use_collision = true
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
-use_collision = true
+size = Vector3(1.392, 1, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="obstacles" groups=["obstacle"]]
 transform = Transform3D(0.784333, 0, -0.62034, 0, 1, 0, 0.62034, 0, 0.784333, -2.87073, -0.774748, 16.542)
