@@ -30,7 +30,7 @@ func _ready() -> void:
 	
 	_init_blocks(num_terrain_blocks)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !worker.is_started() and !unready_belt.is_empty():
 		worker.start(Callable(self, "worker_load_block").bind([unready_belt[-1], worker]))
 

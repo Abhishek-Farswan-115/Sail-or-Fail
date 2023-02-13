@@ -1,11 +1,15 @@
 class_name Boat extends CharacterBody3D
 
 signal lives_lost
+signal lives_changed(new_lives: int)
 
 @export_category("Parameters")
 @export var speed: float = 12.0
 @export var acceleration: float = 0.1
-@export var lives: int = 3
+@export var lives: int = 3:
+	set(val):
+		lives = val
+		lives_changed.emit(val)
 
 @export_category("Camera")
 @export var camera_offset: Vector3 = Vector3(0.0, 4.0, 7.0)
@@ -52,9 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	position.z = default_position
 
-
 func _on_cd_body_entered(body: Node3D) -> void:
 	if body.is_in_group("obstacle"):
 		lives -= 1
-		print(lives)
 		if lives <= 0: lives_lost.emit()

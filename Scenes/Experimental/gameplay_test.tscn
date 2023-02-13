@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://onenq754wy14"]
+[gd_scene load_steps=10 format=3 uid="uid://onenq754wy14"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_6k6im"]
 [ext_resource type="PackedScene" uid="uid://bkg6l5aknvaol" path="res://Scenes/boat/boat_player.tscn" id="2_eqpyr"]
 [ext_resource type="PackedScene" uid="uid://fehdbkbqq8lr" path="res://Scenes/terrain/terrain_controller.tscn" id="3_chsac"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="4_jtwhr"]
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="4_l0tou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibuwe"]
+font = ExtResource("4_l0tou")
+font_size = 21
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ex7uf"]
 sky_top_color = Color(0.282353, 0.380392, 0.54902, 1)
@@ -29,6 +35,25 @@ fog_height_density = 130.0
 [node name="root" type="Node3D"]
 script = ExtResource("1_6k6im")
 
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_jtwhr")
+
+[node name="lives" type="Label" parent="UI"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+text = "3"
+label_settings = SubResource("LabelSettings_ibuwe")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="env" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
@@ -43,4 +68,5 @@ transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 
 [node name="terrain_controller" parent="." instance=ExtResource("3_chsac")]
 num_terrain_blocks = 10
 
+[connection signal="lives_changed" from="boat" to="UI" method="_on_boat_lives_changed"]
 [connection signal="lives_lost" from="boat" to="." method="_on_boat_lives_lost"]
