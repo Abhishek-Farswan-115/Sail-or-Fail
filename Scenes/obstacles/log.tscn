@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm50cajpnvyfd"]
+
+[ext_resource type="PackedScene" uid="uid://mtfpx58xj3xi" path="res://Scenes/obstacles/base_obstacle.tscn" id="1_dd0iy"]
+[ext_resource type="PackedScene" uid="uid://b7wamxbay6a01" path="res://Scenes/obstacles/meshes/log_mesh.tscn" id="2_wpgse"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vruxv"]
+height = 2.11807
+radius = 0.194709
+
+[node name="log" instance=ExtResource("1_dd0iy")]
+
+[node name="collision" parent="." index="0"]
+transform = Transform3D(2.005, 0, 0, 0, -8.76413e-08, -2.005, 0, 2.005, -8.76413e-08, 0.0891323, -0.10369, -0.108924)
+shape = SubResource("CylinderShape3D_vruxv")
+
+[node name="LOG" parent="." index="1" instance=ExtResource("2_wpgse")]

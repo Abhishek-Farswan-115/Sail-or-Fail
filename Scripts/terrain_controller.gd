@@ -30,7 +30,7 @@ func _ready() -> void:
 	
 	_init_blocks(num_terrain_blocks)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !worker.is_started() and !unready_belt.is_empty():
 		worker.start(Callable(self, "worker_load_block").bind([unready_belt[-1], worker]))
 
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	_progress_terrain(delta)
 
 func _init_blocks(number_of_blocks: int) -> void:
-	_create_block(false, null)
+	_create_block(false, null, true)
 	while unready_belt.size() < number_of_blocks:
 		var last: TerrainBlock = unready_belt[0]
 		_create_block(true, last)
@@ -70,8 +70,8 @@ func _load_terrain_scenes(target_path: String) -> void:
 		print("Loading terrian block scene: " + target_path + scene_path)
 		TerrainBlocks.append(load(target_path + scene_path))
 
-func _create_block(at_edge: bool, last: TerrainBlock) -> TerrainBlock:
-	var block: TerrainBlock = TerrainBlocks.pick_random().instantiate()
+func _create_block(at_edge: bool, last: TerrainBlock, empty: bool = false) -> TerrainBlock:
+	var block: TerrainBlock = TerrainBlocks.pick_random().instantiate() if !empty else preload("res://Scenes/terrain/terrain_block_01.tscn").instantiate()
 	block.noise = self.noise
 	if at_edge: _append_to_far_edge(last, block)
 	else: block.position.z = block.size.z / 2
@@ -83,7 +83,6 @@ func worker_load_block(arr: Array) -> void:
 	var block:TerrainBlock = arr[0]
 	var thread:Thread = arr[1]
 	add_child(block)
-	print(str(block.name) + " loaded in thread")
 	call_deferred("worker_finish_load", block, thread)
 
 func worker_finish_load(block: TerrainBlock, thread:Thread) -> void:

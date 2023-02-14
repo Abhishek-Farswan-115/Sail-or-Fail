@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://35lxjarfpl5r"]
+
+[ext_resource type="PackedScene" uid="uid://c3mpi0fl6l6xf" path="res://Resources/Rocks/STONE.glb" id="1_khfqt"]
+
+[node name="STONE" instance=ExtResource("1_khfqt")]
+
+[node name="STONE2" parent="." index="0"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
