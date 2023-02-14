@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5ltn0lx15j23"]
+[gd_scene load_steps=11 format=3 uid="uid://c5ltn0lx15j23"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
@@ -14,25 +14,45 @@ font_color = Color(1, 1, 0.952941, 1)
 outline_size = 3
 outline_color = Color(0, 0.764706, 1, 1)
 
-[node name="Main_Menu" type="Node2D"]
+[sub_resource type="InputEventKey" id="InputEventKey_do72y"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_8vsoa"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_3dxwi"]
+events = [SubResource("InputEventKey_do72y"), SubResource("InputEventKey_8vsoa")]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_40gf5")
 Credit_scene = ExtResource("2_7pthc")
 loading_scene = ExtResource("3_1np80")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="bg" type="ColorRect" parent="."]
 offset_right = 1151.0
 offset_bottom = 646.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.807843)
+color = Color(0.0509804, 0.0509804, 0.0509804, 0.807843)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1151.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -40,19 +60,21 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
-text = "Sail or Fail"
+text = "SAIL OR FAIL"
 label_settings = SubResource("LabelSettings_r775n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
@@ -62,55 +84,31 @@ theme_override_fonts/font = ExtResource("1_qkoix")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("2_8hfd5")
 theme_override_styles/hover = ExtResource("2_e34lw")
-text = "Start"
+shortcut = SubResource("Shortcut_3dxwi")
+text = "START"
 icon_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Quit_button" type="Button" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_right = 250
-
-[node name="Setting_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("2_8hfd5")
 theme_override_styles/hover = ExtResource("2_e34lw")
-text = "Settings"
+text = "QUIT"
 icon_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Setting_button" type="Button" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_right = 250
-
-[node name="Credit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("2_8hfd5")
 theme_override_styles/hover = ExtResource("2_e34lw")
-text = "Credits
-"
-icon_alignment = 1
-
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_right = 250
-
-[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_8hfd5")
-theme_override_styles/hover = ExtResource("2_e34lw")
-text = "Quit"
+text = "SETTINGS"
 icon_alignment = 1
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Credit_button" to="." method="_on_credit_button_button_up"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/Quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Quit_button" to="." method="_on_quit_button_pressed"]
