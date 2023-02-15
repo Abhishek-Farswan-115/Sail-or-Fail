@@ -1,15 +1,48 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5ltn0lx15j23"]
+[gd_scene load_steps=12 format=3 uid="uid://c5ltn0lx15j23"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
-[ext_resource type="PackedScene" uid="uid://5ba3gmmb05yq" path="res://Scenes/UI/Credits.tscn" id="2_7pthc"]
-[ext_resource type="StyleBox" uid="uid://upwb4d0vn62w" path="res://Scenes/UI/Button.tres" id="2_8hfd5"]
-[ext_resource type="StyleBox" uid="uid://b8nr6khqhcaes" path="res://Scenes/UI/Hover_button.tres" id="2_e34lw"]
 [ext_resource type="PackedScene" uid="uid://onenq754wy14" path="res://Scenes/Experimental/gameplay_test.tscn" id="3_1np80"]
+[ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="5_f7w8n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb7hx"]
+bg_color = Color(0.443137, 1, 0.670588, 0.207843)
+corner_radius_top_left = 10
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6821n"]
+bg_color = Color(0.317647, 0.721569, 0.478431, 0.207843)
+corner_radius_top_left = 20
+corner_radius_top_right = 10
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 10
+
+[sub_resource type="PackedScene" id="PackedScene_2cyt3"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Credits", "layout_mode", "anchors_preset", "scale", "Control", "ColorRect", "offset_right", "offset_bottom", "color", "Label", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "Back_button", "offset_left", "offset_top", "theme_override_styles/normal", "theme_override_styles/hover", "icon_alignment", "Button"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 4, 1, 1, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 9, -1, 8, 1, 1, 6, 3, 7, 4, 10, 6, 11, 7, 12, 8, 13, 9, 14, 9, 0, 0, 0, 21, 15, -1, 11, 1, 1, 16, 10, 17, 11, 6, 12, 7, 13, 10, 6, 11, 7, 18, 14, 19, 15, 12, 16, 20, 9, 0),
+"variants": [3, 0, Vector2(1.113, 1.113), 1154.0, 646.0, Color(0, 0, 0, 0.482353), ExtResource("1_qkoix"), 50, "Wonder Forest
+Made by ThuderPlay Studio
+
+Programmers:
+Ohan
+KadinCarlton
+
+Designer
+Abhi", 1, 47.0, 555.0, 276.0, 618.0, SubResource("StyleBoxFlat_bb7hx"), SubResource("StyleBoxFlat_6821n"), "Back"],
+"version": 3
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_r775n"]
 font = ExtResource("1_qkoix")
-font_size = 100
+font_size = 60
 font_color = Color(1, 1, 0.952941, 1)
 outline_size = 3
 outline_color = Color(0, 0.764706, 1, 1)
@@ -30,10 +63,11 @@ events = [SubResource("InputEventKey_do72y"), SubResource("InputEventKey_8vsoa")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_40gf5")
-Credit_scene = ExtResource("2_7pthc")
+Credit_scene = SubResource("PackedScene_2cyt3")
 loading_scene = ExtResource("3_1np80")
 
 [node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 646.0
 grow_horizontal = 2
@@ -54,11 +88,16 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
@@ -67,48 +106,53 @@ label_settings = SubResource("LabelSettings_r775n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_vertical = 6
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_right = 250
+size_flags_horizontal = 8
+size_flags_vertical = 10
 
-[node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("2_8hfd5")
-theme_override_styles/hover = ExtResource("2_e34lw")
+theme = ExtResource("5_f7w8n")
+theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_3dxwi")
 text = "START"
 icon_alignment = 1
 
-[node name="Quit_button" type="Button" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_8hfd5")
-theme_override_styles/hover = ExtResource("2_e34lw")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 300
+
+[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_f7w8n")
+theme_override_font_sizes/font_size = 20
 text = "QUIT"
 icon_alignment = 1
 
-[node name="Setting_button" type="Button" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("1_qkoix")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("2_8hfd5")
-theme_override_styles/hover = ExtResource("2_e34lw")
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 300
+
+[node name="Setting_button" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("5_f7w8n")
+theme_override_font_sizes/font_size = 20
 text = "SETTINGS"
 icon_alignment = 1
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
-[connection signal="pressed" from="MarginContainer/Quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/Quit_button" to="." method="_on_quit_button_pressed"]

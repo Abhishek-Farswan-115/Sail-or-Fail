@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://crqddcmktcgn5"]
+
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_d5v7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xt4rh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gir71"]
+bg_color = Color(0.317647, 0.721569, 0.478431, 0.207843)
+corner_radius_top_left = 20
+corner_radius_top_right = 10
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhkpv"]
+bg_color = Color(0.443137, 1, 0.670588, 0.207843)
+corner_radius_top_left = 10
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_545ua"]
+bg_color = Color(0.0588235, 0.137255, 0.0901961, 0.207843)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+default_font = ExtResource("1_d5v7x")
+Button/fonts/font = ExtResource("1_d5v7x")
+Button/styles/focus = SubResource("StyleBoxEmpty_xt4rh")
+Button/styles/hover = SubResource("StyleBoxFlat_gir71")
+Button/styles/normal = SubResource("StyleBoxFlat_rhkpv")
+Button/styles/pressed = SubResource("StyleBoxFlat_545ua")
