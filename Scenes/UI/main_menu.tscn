@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5ltn0lx15j23"]
+[gd_scene load_steps=11 format=3 uid="uid://cm7liy7kfd6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
-[ext_resource type="PackedScene" uid="uid://onenq754wy14" path="res://Scenes/Experimental/gameplay_test.tscn" id="3_1np80"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="5_f7w8n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb7hx"]
@@ -43,9 +42,7 @@ Abhi", 1, 47.0, 555.0, 276.0, 618.0, SubResource("StyleBoxFlat_bb7hx"), SubResou
 [sub_resource type="LabelSettings" id="LabelSettings_r775n"]
 font = ExtResource("1_qkoix")
 font_size = 60
-font_color = Color(1, 1, 0.952941, 1)
-outline_size = 3
-outline_color = Color(0, 0.764706, 1, 1)
+font_color = Color(0.803922, 0.392157, 0.341176, 1)
 
 [sub_resource type="InputEventKey" id="InputEventKey_do72y"]
 device = -1
@@ -61,26 +58,28 @@ events = [SubResource("InputEventKey_do72y"), SubResource("InputEventKey_8vsoa")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_40gf5")
-Credit_scene = SubResource("PackedScene_2cyt3")
-loading_scene = ExtResource("3_1np80")
-
-[node name="bg" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 646.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0509804, 0.0509804, 0.0509804, 0.807843)
+script = ExtResource("1_40gf5")
+Credit_scene = SubResource("PackedScene_2cyt3")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1152.0
-offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
@@ -154,5 +153,5 @@ theme_override_font_sizes/font_size = 20
 text = "SETTINGS"
 icon_alignment = 1
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer/MarginContainer/Quit_button" to="." method="_on_quit_button_pressed"]

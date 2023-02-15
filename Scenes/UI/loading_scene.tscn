@@ -1,29 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwthoba3ck8p"]
+[gd_scene load_steps=3 format=3 uid="uid://bwthoba3ck8p"]
 
+[ext_resource type="Script" path="res://Scripts/loading_screen.gd" id="1_lsox4"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="2_nqdxk"]
 
 [node name="Loading Scene" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.698039)
+script = ExtResource("1_lsox4")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_top = 54.0
-offset_right = 1152.0
-offset_bottom = 584.0
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.803922, 0.392157, 0.341176, 1)
 theme_override_fonts/font = ExtResource("2_nqdxk")
 theme_override_font_sizes/font_size = 50
@@ -32,10 +36,24 @@ text = "LOADING...
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 256.0
-offset_top = 347.0
-offset_right = 896.0
-offset_bottom = 387.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 200
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.803922, 0.392157, 0.341176, 1)
 theme_override_fonts/font = ExtResource("2_nqdxk")

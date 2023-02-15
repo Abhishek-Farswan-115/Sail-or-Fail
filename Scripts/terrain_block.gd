@@ -15,6 +15,8 @@ var height_offset: float = 4.0
 
 var player_relative_position: float = 0.0
 
+var load_finisher := false
+
 func _ready() -> void:
 	editor_nodes.visible = false
 	spawn_decoration()
