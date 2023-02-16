@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkg6l5aknvaol"]
+[gd_scene load_steps=9 format=3 uid="uid://bkg6l5aknvaol"]
 
 [ext_resource type="Script" path="res://Scripts/boat_player.gd" id="1_5qrm6"]
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
-[ext_resource type="AudioStream" uid="uid://dwytoki3alk7o" path="res://Resources/Sounds/powerUp.ogg" id="3_c01pp"]
-[ext_resource type="AudioStream" uid="uid://yqrikf07svkf" path="res://Resources/Sounds/healthLoss.ogg" id="4_5ua1t"]
+[ext_resource type="AudioStream" uid="uid://dsofodsbsxgra" path="res://Resources/Sounds/coin_pickup.ogg" id="3_ub78n"]
+[ext_resource type="AudioStream" uid="uid://co8skyhvsp1ya" path="res://Resources/Sounds/error.ogg" id="4_1ejfo"]
+[ext_resource type="AudioStream" uid="uid://cuknsgbj2xf15" path="res://Resources/Sounds/boat_impact.ogg" id="4_y3sc2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aihtd"]
+radius = 0.55
+height = 2.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v2ws2"]
+radius = 0.6
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
 radius = 0.7
 height = 3.6
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_v2ws2"]
-radius = 0.6
 
 [node name="boat" type="CharacterBody3D"]
 floor_constant_speed = true
@@ -20,7 +25,7 @@ script = ExtResource("1_5qrm6")
 
 [node name="collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.556862, 0.20791)
-shape = SubResource("CapsuleShape3D_guxx3")
+shape = SubResource("CapsuleShape3D_aihtd")
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 1.81762e-08, -8.55124e-08, 0, 0.978148, 0.207912, 8.74228e-08, 0.207912, -0.978148, 0, 0, 0)
@@ -44,11 +49,15 @@ shape = SubResource("CapsuleShape3D_guxx3")
 [node name="sound" type="Node" parent="."]
 
 [node name="coin_sound" type="AudioStreamPlayer" parent="sound"]
-stream = ExtResource("3_c01pp")
+stream = ExtResource("3_ub78n")
+volume_db = -5.0
 max_polyphony = 2
 
+[node name="lose_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("4_1ejfo")
+
 [node name="damage_sound" type="AudioStreamPlayer" parent="sound"]
-stream = ExtResource("4_5ua1t")
+stream = ExtResource("4_y3sc2")
 max_polyphony = 2
 
 [connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]

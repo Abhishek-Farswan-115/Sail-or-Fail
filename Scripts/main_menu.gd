@@ -20,7 +20,9 @@ func _on_start_button_pressed() -> void:
 	Loader.load_scene(self, "res://Scenes/Game_scene/gameplay.tscn")
 
 func _on_start_button_mouse_entered() -> void:
+	hover_sound.pitch_scale = randf_range(0.98, 1.12)
 	hover_sound.play()
 
 func _on_quit_button_mouse_entered() -> void:
+	hover_sound.pitch_scale = randf_range(0.98, 1.12)
 	hover_sound.play()

@@ -27,6 +27,7 @@ signal coins_changed(new_coins: int)
 @onready var camera: Camera3D = $camera
 @onready var coin_sound_streamplayer: AudioStreamPlayer = $sound/coin_sound
 @onready var damage_sound_streamplayer: AudioStreamPlayer = $sound/damage_sound
+@onready var lose_sound_streamplayer: AudioStreamPlayer = $sound/lose_sound
 
 var coins: int = 0:
 	set(val):
@@ -103,9 +104,11 @@ func _on_cd_body_entered(body: Node3D) -> void:
 		if lives <= 0: 
 			lives_lost.emit()
 			can_move = false
+			lose_sound_streamplayer.play()
 
 func _on_ccd_area_entered(area: Area3D) -> void:
 	if area is Coin:
 		coins += 1
 		area.queue_free()
+		coin_sound_streamplayer.pitch_scale = randf_range(1.0, 1.1)
 		coin_sound_streamplayer.play()
