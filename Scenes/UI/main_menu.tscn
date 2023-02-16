@@ -1,45 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm7liy7kfd6yw"]
+[gd_scene load_steps=11 format=3 uid="uid://cm7liy7kfd6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
 [ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="4_774le"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="5_f7w8n"]
 [ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="5_h3w1m"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb7hx"]
-bg_color = Color(0.443137, 1, 0.670588, 0.207843)
-corner_radius_top_left = 10
-corner_radius_top_right = 20
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6821n"]
-bg_color = Color(0.317647, 0.721569, 0.478431, 0.207843)
-corner_radius_top_left = 20
-corner_radius_top_right = 10
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 10
-
-[sub_resource type="PackedScene" id="PackedScene_2cyt3"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Credits", "layout_mode", "anchors_preset", "scale", "Control", "ColorRect", "offset_right", "offset_bottom", "color", "Label", "theme_override_fonts/font", "theme_override_font_sizes/font_size", "text", "horizontal_alignment", "vertical_alignment", "Back_button", "offset_left", "offset_top", "theme_override_styles/normal", "theme_override_styles/hover", "icon_alignment", "Button"),
-"node_count": 4,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 4, 1, 1, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 9, -1, 8, 1, 1, 6, 3, 7, 4, 10, 6, 11, 7, 12, 8, 13, 9, 14, 9, 0, 0, 0, 21, 15, -1, 11, 1, 1, 16, 10, 17, 11, 6, 12, 7, 13, 10, 6, 11, 7, 18, 14, 19, 15, 12, 16, 20, 9, 0),
-"variants": [3, 0, Vector2(1.113, 1.113), 1154.0, 646.0, Color(0, 0, 0, 0.482353), ExtResource("1_qkoix"), 50, "Wonder Forest
-Made by ThuderPlay Studio
-
-Programmers:
-Ohan
-KadinCarlton
-
-Designer
-Abhi", 1, 47.0, 555.0, 276.0, 618.0, SubResource("StyleBoxFlat_bb7hx"), SubResource("StyleBoxFlat_6821n"), "Back"],
-"version": 3
-}
 
 [sub_resource type="LabelSettings" id="LabelSettings_r775n"]
 font = ExtResource("1_qkoix")
@@ -68,7 +33,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40gf5")
-Credit_scene = SubResource("PackedScene_2cyt3")
 
 [node name="bg" type="ColorRect" parent="."]
 layout_mode = 1

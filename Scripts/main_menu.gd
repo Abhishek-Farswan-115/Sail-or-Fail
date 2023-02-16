@@ -1,8 +1,5 @@
 extends Control
 
-@export var Credit_scene: PackedScene
-@export var loading_scene: PackedScene
-
 @onready var hover_sound: AudioStreamPlayer = $sound/button_hover_sound
 @onready var clicked_sound: AudioStreamPlayer = $sound/button_clicked_sound
 
