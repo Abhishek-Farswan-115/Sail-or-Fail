@@ -62,6 +62,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="coins" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_right = -12.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(1.00682, 1)
+text = "0
+"
+label_settings = SubResource("LabelSettings_ibuwe")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
 [node name="env" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
@@ -69,7 +86,7 @@ environment = SubResource("Environment_bi1fd")
 camera_attributes = SubResource("CameraAttributesPractical_j7by3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env/WorldEnvironment"]
-transform = Transform3D(0.647402, 0.679851, -0.34449, 0, 0.451999, 0.892019, 0.762149, -0.577495, 0.292625, 0, 8.68044, 0)
+transform = Transform3D(0.659931, 0.654782, -0.368445, -0.0612833, 0.53567, 0.8422, 0.748823, -0.533215, 0.393633, 0, 8.68044, 0)
 
 [node name="boat" parent="." instance=ExtResource("4_06fwu")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 15)
@@ -77,5 +94,7 @@ transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 
 [node name="terrain_controller" parent="." instance=ExtResource("5_kr2yp")]
 num_terrain_blocks = 6
 
+[connection signal="coins_changed" from="boat" to="UI" method="_on_boat_coins_changed"]
 [connection signal="lives_changed" from="boat" to="UI" method="_on_boat_lives_changed"]
 [connection signal="lives_lost" from="boat" to="." method="_on_boat_lives_lost"]
+[connection signal="lives_lost" from="boat" to="UI" method="_on_boat_lives_lost"]

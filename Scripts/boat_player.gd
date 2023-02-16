@@ -3,6 +3,8 @@ class_name Boat extends CharacterBody3D
 signal lives_lost
 signal lives_changed(new_lives: int)
 
+signal coins_changed(new_coins: int)
+
 @export_category("Parameters")
 @export var speed: float = 12.0
 @export var acceleration: float = 0.1
@@ -24,6 +26,11 @@ signal lives_changed(new_lives: int)
 @onready var mesh: Node3D = $Boat_1
 @onready var camera: Camera3D = $camera
 
+var coins: int = 0:
+	set(val):
+		coins = val
+		coins_changed.emit(val)
+
 #camera vars
 var camera_basis: Basis
 var camera_default_rot: Vector3
@@ -31,6 +38,7 @@ var trauma : float
 var shake_offset: Vector3
 var camera_noise: FastNoiseLite
 
+var can_move :bool = true
 var default_position: float
 var movement_input: float
 
@@ -57,6 +65,8 @@ func _process(delta: float) -> void:
 
 func poll_input() -> void:
 	movement_input = 0.0
+	if !can_move:
+		return
 	if Input.is_action_pressed("move_left"):
 		movement_input -= 1.0
 	if Input.is_action_pressed("move_right"):
@@ -87,4 +97,11 @@ func _on_cd_body_entered(body: Node3D) -> void:
 	if body is Obstacle:
 		shake_camera(0.5)
 		lives -= 1
-		if lives <= 0: lives_lost.emit()
+		if lives <= 0: 
+			lives_lost.emit()
+			can_move = false
+
+func _on_ccd_area_entered(area: Area3D) -> void:
+	if area is Coin:
+		coins += 1
+		area.queue_free()

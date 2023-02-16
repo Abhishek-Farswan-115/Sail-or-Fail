@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx6j5s7vl01ah"]
+[gd_scene load_steps=20 format=3 uid="uid://dx6j5s7vl01ah"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_wgurr"]
 [ext_resource type="PackedScene" uid="uid://iv488iscoe18" path="res://Scenes/TREE/birch_1.tscn" id="2_md6kc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="7_m3vrl"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="8_hmnm8"]
 [ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="9_ormis"]
+[ext_resource type="PackedScene" uid="uid://dcyucnxnm6k3g" path="res://Scenes/coin/coin.tscn" id="10_t50mr"]
 
 [sub_resource type="Resource" id="Resource_aujar"]
 script = ExtResource("3_vnumr")
@@ -135,3 +136,20 @@ transform = Transform3D(0.881869, 0.106772, -0.459246, -0.102247, 0.99415, 0.034
 
 [node name="small_rock" parent="." instance=ExtResource("7_m3vrl")]
 transform = Transform3D(-0.669727, -0.742607, 0, 0.742607, -0.669727, 0, 0, 0, 1, 0.966421, 0.514414, 16.6755)
+
+[node name="coins" type="Node3D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("10_t50mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15179, 0.826825, -5.64481)
+
+[node name="coin4" parent="coins" instance=ExtResource("10_t50mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40096, 0.826825, -16.7663)
+
+[node name="coin2" parent="coins" instance=ExtResource("10_t50mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22873, 0.826825, 2.22257)
+
+[node name="coin3" parent="coins" instance=ExtResource("10_t50mr")]
+transform = Transform3D(0.999965, 0, 0.00834258, 0, 1, 0, -0.00834258, 0, 0.999965, 2.4694, 0.993472, 8.50016)
+
+[node name="coin5" parent="coins" instance=ExtResource("10_t50mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27685, 0.993471, 13.8616)

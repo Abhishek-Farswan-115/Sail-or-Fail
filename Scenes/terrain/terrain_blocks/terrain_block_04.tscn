@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddlbgl2ewh8pk"]
+[gd_scene load_steps=22 format=3 uid="uid://ddlbgl2ewh8pk"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_5mjff"]
 [ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="2_72550"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="7_u7t7d"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="9_qclei"]
 [ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="10_00cy6"]
+[ext_resource type="PackedScene" uid="uid://dcyucnxnm6k3g" path="res://Scenes/coin/coin.tscn" id="11_s66os"]
 
 [sub_resource type="Resource" id="Resource_b6pm7"]
 script = ExtResource("2_72550")
@@ -142,3 +143,23 @@ transform = Transform3D(-0.289347, -0.242236, 0.926067, -0.0774864, 0.970203, 0.
 
 [node name="log2" parent="obstacles" instance=ExtResource("10_00cy6")]
 transform = Transform3D(-0.175133, 0.919105, -0.35295, -0.149361, -0.379144, -0.913204, -0.973149, -0.107215, 0.203679, 0.0304857, 0, 20.7545)
+
+[node name="coins" type="Node3D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985055, 0.826825, -12.2806)
+
+[node name="coin4" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02311, 0.826825, -21.2173)
+
+[node name="coin5" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34417, 0.826825, -21.2173)
+
+[node name="coin2" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70915, 0.826825, 0.626046)
+
+[node name="coin3" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660554, 0.826825, 16.433)
+
+[node name="coin6" parent="coins" instance=ExtResource("11_s66os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23908, 0.826825, 3.83624)
