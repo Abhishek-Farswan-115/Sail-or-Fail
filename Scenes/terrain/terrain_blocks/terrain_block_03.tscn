@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpq0obb3u8dq8"]
+[gd_scene load_steps=18 format=3 uid="uid://dpq0obb3u8dq8"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_lckdk"]
 [ext_resource type="PackedScene" uid="uid://bq57l7cpkg4to" path="res://Scenes/TREE/pine_1.tscn" id="2_j0km3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="6_j4neq"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="7_ircll"]
 [ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="8_r3hl0"]
+[ext_resource type="PackedScene" uid="uid://dcyucnxnm6k3g" path="res://Scenes/coin/coin.tscn" id="9_74jmn"]
 
 [sub_resource type="Resource" id="Resource_aujar"]
 script = ExtResource("3_580wa")
@@ -133,3 +134,23 @@ transform = Transform3D(0.821246, -0.415101, -0.391468, -0.463953, -0.885181, -0
 
 [node name="log2" parent="obstacles" instance=ExtResource("8_r3hl0")]
 transform = Transform3D(0.881869, 0.106772, -0.459246, -0.102247, 0.99415, 0.0347945, 0.460274, 0.0162724, 0.887628, -1.78548, 0.0799704, -13.0318)
+
+[node name="coins" type="Node3D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259549, 0.826826, -13.5983)
+
+[node name="coin4" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71307, 0.826825, -21.2173)
+
+[node name="coin6" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691978, 0.826825, -4.45732)
+
+[node name="coin2" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84682, 0.826825, -0.574637)
+
+[node name="coin5" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2905, 0.826825, 7.70326)
+
+[node name="coin3" parent="coins" instance=ExtResource("9_74jmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503927, 0.826825, 19.4449)

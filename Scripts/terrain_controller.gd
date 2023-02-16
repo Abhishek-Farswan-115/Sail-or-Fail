@@ -13,6 +13,7 @@ var unready_belt: Array[TerrainBlock]
 var noise: FastNoiseLite
 var time: float = 0.0
 
+var is_loaded: bool = false
 var worker: Thread
 
 func _ready() -> void:
@@ -41,9 +42,11 @@ func _init_blocks(number_of_blocks: int) -> void:
 	_create_block(false, null, true)
 	while unready_belt.size() < number_of_blocks:
 		var last: TerrainBlock = unready_belt[0]
-		_create_block(true, last)
+		_create_block(true, last, false, true if unready_belt.size() + 1 == number_of_blocks else false)
 
 func _progress_terrain(delta: float) -> void:
+	if !is_loaded: return
+	
 	time += delta
 	
 	for block in terrain_belt:
@@ -70,9 +73,10 @@ func _load_terrain_scenes(target_path: String) -> void:
 		print("Loading terrian block scene: " + target_path + scene_path)
 		TerrainBlocks.append(load(target_path + scene_path))
 
-func _create_block(at_edge: bool, last: TerrainBlock, empty: bool = false) -> TerrainBlock:
+func _create_block(at_edge: bool, last: TerrainBlock, empty: bool = false, load_finisher: bool = false) -> TerrainBlock:
 	var block: TerrainBlock = TerrainBlocks.pick_random().instantiate() if !empty else preload("res://Scenes/terrain/terrain_block_01.tscn").instantiate()
 	block.noise = self.noise
+	block.load_finisher = load_finisher
 	if at_edge: _append_to_far_edge(last, block)
 	else: block.position.z = block.size.z / 2
 	block.player_relative_position = block.position.z - terrain_velocity * time
@@ -89,4 +93,7 @@ func worker_finish_load(block: TerrainBlock, thread:Thread) -> void:
 	terrain_belt.append(block)
 	var idx: int = unready_belt.find(block)
 	if idx >= 0: unready_belt.remove_at(idx)
+	if block.load_finisher: 
+		get_parent().load_complete.emit()
+		is_loaded = true
 	thread.wait_to_finish()

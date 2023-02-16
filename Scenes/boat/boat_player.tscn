@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
-radius = 0.55
-height = 3.0
+radius = 0.7
+height = 3.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v2ws2"]
 radius = 0.6
@@ -17,7 +17,7 @@ platform_on_leave = 2
 script = ExtResource("1_5qrm6")
 
 [node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.556862, 0.465388)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.556862, 0.20791)
 shape = SubResource("CapsuleShape3D_guxx3")
 
 [node name="camera" type="Camera3D" parent="."]
@@ -30,6 +30,14 @@ transform = Transform3D(8.7, 0, 0, 0, 8.7, 0, 0, 0, 8.7, 0, 0.4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552466, 1.48601)
 
 [node name="collision" type="CollisionShape3D" parent="cd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33782)
 shape = SubResource("SphereShape3D_v2ws2")
 
+[node name="ccd" type="Area3D" parent="."]
+
+[node name="collision2" type="CollisionShape3D" parent="ccd"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.556862, 0.20791)
+shape = SubResource("CapsuleShape3D_guxx3")
+
 [connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]
+[connection signal="area_entered" from="ccd" to="." method="_on_ccd_area_entered"]

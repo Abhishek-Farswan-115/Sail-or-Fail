@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0ifieq7f6xtj"]
+
+[ext_resource type="Script" path="res://Scripts/game_main.gd" id="1_6brio"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="2_4k548"]
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="3_nabqp"]
+[ext_resource type="PackedScene" uid="uid://bkg6l5aknvaol" path="res://Scenes/boat/boat_player.tscn" id="4_06fwu"]
+[ext_resource type="PackedScene" uid="uid://fehdbkbqq8lr" path="res://Scenes/terrain/terrain_controller.tscn" id="5_kr2yp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibuwe"]
+font = ExtResource("3_nabqp")
+font_size = 21
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ex7uf"]
+sky_top_color = Color(0.282353, 0.380392, 0.54902, 1)
+ground_bottom_color = Color(0.282353, 0.380392, 0.54902, 1)
+
+[sub_resource type="Sky" id="Sky_qigas"]
+sky_material = SubResource("ProceduralSkyMaterial_ex7uf")
+
+[sub_resource type="Environment" id="Environment_bi1fd"]
+background_mode = 2
+sky = SubResource("Sky_qigas")
+ambient_light_source = 3
+ambient_light_color = Color(0.298039, 0.298039, 0.298039, 1)
+ambient_light_sky_contribution = 0.3
+tonemap_mode = 3
+glow_normalized = true
+glow_bloom = 0.5
+fog_enabled = true
+fog_light_color = Color(0.509804, 0.509804, 0.509804, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
+fog_height = -100.0
+fog_height_density = 130.0
+adjustment_enabled = true
+adjustment_brightness = 1.1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_j7by3"]
+dof_blur_far_distance = 172.0
+dof_blur_far_transition = -1.0
+dof_blur_amount = 0.05
+
+[node name="game_root" type="Node3D"]
+script = ExtResource("1_6brio")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4k548")
+
+[node name="lives" type="Label" parent="UI"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+text = "3"
+label_settings = SubResource("LabelSettings_ibuwe")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="coins" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_right = -12.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(1.00682, 1)
+text = "0
+"
+label_settings = SubResource("LabelSettings_ibuwe")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="env" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_bi1fd")
+camera_attributes = SubResource("CameraAttributesPractical_j7by3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env/WorldEnvironment"]
+transform = Transform3D(0.659931, 0.654782, -0.368445, -0.0612833, 0.53567, 0.8422, 0.748823, -0.533215, 0.393633, 0, 8.68044, 0)
+
+[node name="boat" parent="." instance=ExtResource("4_06fwu")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 15)
+
+[node name="terrain_controller" parent="." instance=ExtResource("5_kr2yp")]
+num_terrain_blocks = 6
+
+[connection signal="coins_changed" from="boat" to="UI" method="_on_boat_coins_changed"]
+[connection signal="lives_changed" from="boat" to="UI" method="_on_boat_lives_changed"]
+[connection signal="lives_lost" from="boat" to="." method="_on_boat_lives_lost"]
+[connection signal="lives_lost" from="boat" to="UI" method="_on_boat_lives_lost"]
