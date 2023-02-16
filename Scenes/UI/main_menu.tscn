@@ -136,12 +136,10 @@ icon_alignment = 1
 [node name="button_hover_sound" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("4_774le")
 max_polyphony = 2
-bus = &"UI"
 
 [node name="button_clicked_sound" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("5_h3w1m")
 max_polyphony = 2
-bus = &"UI"
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
