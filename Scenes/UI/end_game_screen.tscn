@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://beb2jlv8ndimc"]
+[gd_scene load_steps=7 format=3 uid="uid://beb2jlv8ndimc"]
 
 [ext_resource type="Script" path="res://Scripts/end_game_screen.gd" id="1_f6j4v"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_srtx2"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="1_y0yrk"]
+[ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="4_ioced"]
+[ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="5_7orp1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3pbtt"]
 font = ExtResource("1_srtx2")
@@ -105,5 +107,19 @@ theme_override_font_sizes/font_size = 20
 text = "RETRY"
 icon_alignment = 1
 
+[node name="sound" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("4_ioced")
+max_polyphony = 2
+bus = &"UI"
+
+[node name="button_clicked_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("5_7orp1")
+max_polyphony = 2
+bus = &"UI"
+
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/menu_button" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer/menu_button" to="." method="_on_menu_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2/retry_button" to="." method="_on_retry_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/MarginContainer2/retry_button" to="." method="_on_retry_button_pressed"]

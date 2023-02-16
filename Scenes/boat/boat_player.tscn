@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkg6l5aknvaol"]
+[gd_scene load_steps=7 format=3 uid="uid://bkg6l5aknvaol"]
 
 [ext_resource type="Script" path="res://Scripts/boat_player.gd" id="1_5qrm6"]
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
+[ext_resource type="AudioStream" uid="uid://dwytoki3alk7o" path="res://Resources/Sounds/powerUp.ogg" id="3_c01pp"]
+[ext_resource type="AudioStream" uid="uid://yqrikf07svkf" path="res://Resources/Sounds/healthLoss.ogg" id="4_5ua1t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guxx3"]
 radius = 0.7
@@ -38,6 +40,16 @@ shape = SubResource("SphereShape3D_v2ws2")
 [node name="collision2" type="CollisionShape3D" parent="ccd"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.556862, 0.20791)
 shape = SubResource("CapsuleShape3D_guxx3")
+
+[node name="sound" type="Node" parent="."]
+
+[node name="coin_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("3_c01pp")
+max_polyphony = 2
+
+[node name="damage_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("4_5ua1t")
+max_polyphony = 2
 
 [connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]
 [connection signal="area_entered" from="ccd" to="." method="_on_ccd_area_entered"]

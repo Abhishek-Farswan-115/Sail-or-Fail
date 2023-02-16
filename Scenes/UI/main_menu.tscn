@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm7liy7kfd6yw"]
+[gd_scene load_steps=14 format=3 uid="uid://cm7liy7kfd6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
+[ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="4_774le"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="5_f7w8n"]
+[ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="5_h3w1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb7hx"]
 bg_color = Color(0.443137, 1, 0.670588, 0.207843)
@@ -129,5 +131,19 @@ theme_override_font_sizes/font_size = 40
 text = "QUIT"
 icon_alignment = 1
 
+[node name="sound" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("4_774le")
+max_polyphony = 2
+bus = &"UI"
+
+[node name="button_clicked_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("5_h3w1m")
+max_polyphony = 2
+bus = &"UI"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
