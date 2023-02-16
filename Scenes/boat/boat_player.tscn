@@ -30,6 +30,7 @@ transform = Transform3D(8.7, 0, 0, 0, 8.7, 0, 0, 0, 8.7, 0, 0.4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552466, 1.48601)
 
 [node name="collision" type="CollisionShape3D" parent="cd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0437419)
 shape = SubResource("SphereShape3D_v2ws2")
 
 [connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]
