@@ -5,7 +5,7 @@ class_name UI extends Control
 var pause_menu: Control = null
 
 func _on_boat_lives_changed(new_lives: int) -> void:
-	$lives.text = str(new_lives)
+	$HBoxContainer2/lives.text = str(new_lives)
 
 func _on_boat_coins_changed(new_coins) -> void:
 	$HBoxContainer/coins.text = str(new_coins)

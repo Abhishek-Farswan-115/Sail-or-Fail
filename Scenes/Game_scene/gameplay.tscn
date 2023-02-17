@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ifieq7f6xtj"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ifieq7f6xtj"]
 
 [ext_resource type="Script" path="res://Scripts/game_main.gd" id="1_6brio"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="2_4k548"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkg6l5aknvaol" path="res://Scenes/boat/boat_player.tscn" id="4_06fwu"]
 [ext_resource type="PackedScene" uid="uid://fehdbkbqq8lr" path="res://Scenes/terrain/terrain_controller.tscn" id="5_kr2yp"]
 [ext_resource type="Texture2D" uid="uid://ckqweqfkaahu3" path="res://Resources/Coin.png" id="5_pn4px"]
+[ext_resource type="Texture2D" uid="uid://bfc72qpeyv7t5" path="res://Resources/Boat_Icon.png" id="6_ucarx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ibuwe"]
 font = ExtResource("3_nabqp")
@@ -54,16 +55,6 @@ grow_vertical = 2
 theme = ExtResource("2_ysw3x")
 script = ExtResource("2_4k548")
 
-[node name="lives" type="Label" parent="UI"]
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
-text = "3"
-label_settings = SubResource("LabelSettings_ibuwe")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -87,6 +78,24 @@ uppercase = true
 layout_mode = 2
 texture = ExtResource("5_pn4px")
 expand_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 121.0
+offset_bottom = 100.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("6_ucarx")
+expand_mode = 2
+
+[node name="lives" type="Label" parent="UI/HBoxContainer2"]
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_ibuwe")
+vertical_alignment = 1
+uppercase = true
 
 [node name="env" type="Node" parent="."]
 

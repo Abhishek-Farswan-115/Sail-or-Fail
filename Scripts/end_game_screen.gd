@@ -10,7 +10,7 @@ func _ready() -> void:
 	set_coins(coins)
 
 func set_coins(new_coins: int) -> void:
-	$MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/coins.text = str(new_coins) + " COINS"
+	$MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/HBoxContainer/coins.text = str(new_coins)
 
 func _on_menu_button_pressed() -> void:
 	clicked_sound.play()

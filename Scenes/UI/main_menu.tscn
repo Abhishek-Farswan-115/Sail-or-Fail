@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm7liy7kfd6yw"]
+[gd_scene load_steps=10 format=3 uid="uid://cm7liy7kfd6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
@@ -22,8 +22,6 @@ unicode = 32
 
 [sub_resource type="Shortcut" id="Shortcut_3dxwi"]
 events = [SubResource("InputEventKey_do72y"), SubResource("InputEventKey_8vsoa")]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_i65v4"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -64,8 +62,13 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = -500
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
 text = "SAIL OR FAIL"
@@ -73,25 +76,31 @@ label_settings = SubResource("LabelSettings_r775n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 750
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+[node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 10
 theme = ExtResource("5_f7w8n")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_3dxwi")
 text = "START"
-icon = SubResource("ViewportTexture_i65v4")
 icon_alignment = 1
 
-[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+[node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 10
 theme = ExtResource("5_f7w8n")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "QUIT"
 icon_alignment = 1
 
@@ -105,7 +114,7 @@ max_polyphony = 2
 stream = ExtResource("5_h3w1m")
 max_polyphony = 2
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Start_button" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]

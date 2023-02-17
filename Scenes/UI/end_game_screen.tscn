@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://beb2jlv8ndimc"]
+[gd_scene load_steps=9 format=3 uid="uid://beb2jlv8ndimc"]
 
 [ext_resource type="Script" path="res://Scripts/end_game_screen.gd" id="1_f6j4v"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_srtx2"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="1_y0yrk"]
 [ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="4_ioced"]
+[ext_resource type="Texture2D" uid="uid://ckqweqfkaahu3" path="res://Resources/Coin.png" id="4_ps6ai"]
 [ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="5_7orp1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3pbtt"]
 font = ExtResource("1_srtx2")
 font_size = 40
 font_color = Color(0.803922, 0.392157, 0.341176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gb1wy"]
+font = ExtResource("1_srtx2")
+font_size = 20
 
 [node name="end_game_screen" type="Control"]
 layout_mode = 3
@@ -70,11 +75,26 @@ text = "YOU GOT: "
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/margin_right = 100
 
-[node name="coins" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-text = "20 COINS"
+
+[node name="coins" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_gb1wy")
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_ps6ai")
+expand_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
