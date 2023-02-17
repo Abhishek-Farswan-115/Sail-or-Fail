@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddlbgl2ewh8pk"]
+[gd_scene load_steps=20 format=3 uid="uid://ddlbgl2ewh8pk"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_5mjff"]
 [ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="2_72550"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4t4tmpw773wv" path="res://Scenes/TREE/dead_tree_1.tscn" id="5_awl4a"]
 [ext_resource type="PackedScene" uid="uid://nv0bnvrx1ie8" path="res://Scenes/TREE/dead_tree_2.tscn" id="6_7h0a4"]
 [ext_resource type="PackedScene" uid="uid://bc152gtjb5sp6" path="res://Scenes/obstacles/big_rock.tscn" id="7_5ee2u"]
+[ext_resource type="Material" uid="uid://bouuag63rhimj" path="res://Scenes/terrain/shaders/water_material.tres" id="7_6kula"]
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="7_u7t7d"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="9_qclei"]
 [ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="10_00cy6"]
@@ -32,18 +33,8 @@ script = ExtResource("2_72550")
 instance_scene = ExtResource("6_7h0a4")
 instance_number = 1
 
-[sub_resource type="BoxMesh" id="BoxMesh_jt2lr"]
-size = Vector3(10, 1, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoovm"]
-albedo_color = Color(0.27451, 0.380392, 0.745098, 1)
-roughness = 0.3
-
-[sub_resource type="BoxMesh" id="BoxMesh_l8mtg"]
-size = Vector3(7.5, 3, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1q3n"]
-albedo_color = Color(0.360784, 0.223529, 0.0980392, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_8t04f"]
+size = Vector2(43, 43)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da5nu"]
 size = Vector3(0.5, 4.5, 43)
@@ -56,43 +47,19 @@ script = ExtResource("1_5mjff")
 size = Vector3(23, 1, 43)
 foliage_types = Array[ExtResource("2_72550")]([SubResource("Resource_b6pm7"), SubResource("Resource_c5g1e"), SubResource("Resource_v1wvg"), SubResource("Resource_vf78k")])
 
-[node name="River@CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376559, 0)
-mesh = SubResource("BoxMesh_jt2lr")
-material = SubResource("StandardMaterial3D_xoovm")
-
-[node name="River@CSGMesh3D2" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932972, 0.359948, 0, -0.359948, 0.932972, 0, 0, 0, 1, -7.98275, 0.071889, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D3" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.683, 1.31, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D4" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932954, -0.359997, 0, 0.359997, 0.932954, 0, 0, 0, 1, 7.983, 0.072, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D5" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6827, 1.30996, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
+[node name="river" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255758, 0)
+mesh = SubResource("PlaneMesh_8t04f")
+surface_material_override/0 = ExtResource("7_6kula")
 
 [node name="border" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border"]
 shape = SubResource("BoxShape3D_da5nu")
 
 [node name="border2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.70025, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border2"]
 shape = SubResource("BoxShape3D_da5nu")

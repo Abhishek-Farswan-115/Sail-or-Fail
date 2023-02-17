@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx6j5s7vl01ah"]
+[gd_scene load_steps=18 format=3 uid="uid://dx6j5s7vl01ah"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_wgurr"]
 [ext_resource type="PackedScene" uid="uid://iv488iscoe18" path="res://Scenes/TREE/birch_1.tscn" id="2_md6kc"]
 [ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="3_vnumr"]
 [ext_resource type="PackedScene" uid="uid://xo6ilwc1naba" path="res://Scenes/TREE/birch_2.tscn" id="4_uaih7"]
 [ext_resource type="PackedScene" uid="uid://duvncxv3o07w7" path="res://Scenes/TREE/birch_3.tscn" id="5_7aug3"]
+[ext_resource type="Material" uid="uid://bouuag63rhimj" path="res://Scenes/terrain/shaders/water_material.tres" id="6_2g8ih"]
 [ext_resource type="PackedScene" uid="uid://bc152gtjb5sp6" path="res://Scenes/obstacles/big_rock.tscn" id="6_itxhk"]
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="7_m3vrl"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="8_hmnm8"]
@@ -26,18 +27,8 @@ script = ExtResource("3_vnumr")
 instance_scene = ExtResource("5_7aug3")
 instance_number = 6
 
-[sub_resource type="BoxMesh" id="BoxMesh_jt2lr"]
-size = Vector3(10, 1, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0f5o"]
-albedo_color = Color(0.27451, 0.380392, 0.745098, 1)
-roughness = 0.3
-
-[sub_resource type="BoxMesh" id="BoxMesh_l8mtg"]
-size = Vector3(7.5, 3, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1q3n"]
-albedo_color = Color(0.360784, 0.223529, 0.0980392, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_8rni0"]
+size = Vector2(43, 43)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da5nu"]
 size = Vector3(0.5, 4.5, 43)
@@ -50,43 +41,19 @@ script = ExtResource("1_wgurr")
 size = Vector3(23, 1, 43)
 foliage_types = Array[ExtResource("3_vnumr")]([SubResource("Resource_aujar"), SubResource("Resource_wr1ce"), SubResource("Resource_3v7ih")])
 
-[node name="River@CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376559, 0)
-mesh = SubResource("BoxMesh_jt2lr")
-material = SubResource("StandardMaterial3D_e0f5o")
-
-[node name="River@CSGMesh3D2" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932972, 0.359948, 0, -0.359948, 0.932972, 0, 0, 0, 1, -7.98275, 0.071889, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D3" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.683, 1.31, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D4" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932954, -0.359997, 0, 0.359997, 0.932954, 0, 0, 0, 1, 7.983, 0.072, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D5" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6827, 1.30996, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
+[node name="river" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255758, 0)
+mesh = SubResource("PlaneMesh_8rni0")
+surface_material_override/0 = ExtResource("6_2g8ih")
 
 [node name="border" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border"]
 shape = SubResource("BoxShape3D_da5nu")
 
 [node name="border2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border2"]
 shape = SubResource("BoxShape3D_da5nu")
@@ -134,7 +101,7 @@ transform = Transform3D(0.843775, -0.429646, -0.321635, -0.463953, -0.885181, -0
 [node name="log2" parent="obstacles" instance=ExtResource("9_ormis")]
 transform = Transform3D(0.881869, 0.106772, -0.459246, -0.102247, 0.99415, 0.0347945, 0.460274, 0.0162724, 0.887628, -2.92237, 0.0799704, -15.5066)
 
-[node name="small_rock" parent="." instance=ExtResource("7_m3vrl")]
+[node name="small_rock4" parent="obstacles" instance=ExtResource("7_m3vrl")]
 transform = Transform3D(-0.669727, -0.742607, 0, 0.742607, -0.669727, 0, 0, 0, 1, 0.966421, 0.514414, 16.6755)
 
 [node name="coins" type="Node3D" parent="."]

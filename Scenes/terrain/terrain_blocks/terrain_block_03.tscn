@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpq0obb3u8dq8"]
+[gd_scene load_steps=16 format=3 uid="uid://dpq0obb3u8dq8"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_block.gd" id="1_lckdk"]
 [ext_resource type="PackedScene" uid="uid://bq57l7cpkg4to" path="res://Scenes/TREE/pine_1.tscn" id="2_j0km3"]
 [ext_resource type="Script" path="res://Scripts/foliage_type.gd" id="3_580wa"]
 [ext_resource type="PackedScene" uid="uid://b7ebflhg37c6r" path="res://Scenes/TREE/pine_2.tscn" id="4_wdj8v"]
 [ext_resource type="PackedScene" uid="uid://bc152gtjb5sp6" path="res://Scenes/obstacles/big_rock.tscn" id="5_hkum8"]
+[ext_resource type="Material" uid="uid://bouuag63rhimj" path="res://Scenes/terrain/shaders/water_material.tres" id="5_mkjr3"]
 [ext_resource type="PackedScene" uid="uid://dkvqq3jmrgs70" path="res://Scenes/obstacles/small_rock.tscn" id="6_j4neq"]
 [ext_resource type="PackedScene" uid="uid://dhqg8gr7cqndb" path="res://Scenes/obstacles/stone.tscn" id="7_ircll"]
 [ext_resource type="PackedScene" uid="uid://bm50cajpnvyfd" path="res://Scenes/obstacles/log.tscn" id="8_r3hl0"]
@@ -20,18 +21,8 @@ script = ExtResource("3_580wa")
 instance_scene = ExtResource("4_wdj8v")
 instance_number = 12
 
-[sub_resource type="BoxMesh" id="BoxMesh_jt2lr"]
-size = Vector3(10, 1, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xoovm"]
-albedo_color = Color(0.27451, 0.380392, 0.745098, 1)
-roughness = 0.3
-
-[sub_resource type="BoxMesh" id="BoxMesh_l8mtg"]
-size = Vector3(7.5, 3, 43)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1q3n"]
-albedo_color = Color(0.360784, 0.223529, 0.0980392, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_i7b70"]
+size = Vector2(43, 43)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_da5nu"]
 size = Vector3(0.5, 4.5, 43)
@@ -44,43 +35,19 @@ script = ExtResource("1_lckdk")
 size = Vector3(23, 1, 43)
 foliage_types = Array[ExtResource("3_580wa")]([SubResource("Resource_aujar"), SubResource("Resource_wr1ce")])
 
-[node name="River@CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376559, 0)
-mesh = SubResource("BoxMesh_jt2lr")
-material = SubResource("StandardMaterial3D_xoovm")
-
-[node name="River@CSGMesh3D2" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932972, 0.359948, 0, -0.359948, 0.932972, 0, 0, 0, 1, -7.98275, 0.071889, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D3" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.683, 1.31, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D4" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.932954, -0.359997, 0, 0.359997, 0.932954, 0, 0, 0, 1, 7.983, 0.072, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
-
-[node name="River@CSGMesh3D5" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6827, 1.30996, 0)
-visible = false
-mesh = SubResource("BoxMesh_l8mtg")
-material = SubResource("StandardMaterial3D_v1q3n")
+[node name="river" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255758, 0)
+mesh = SubResource("PlaneMesh_i7b70")
+surface_material_override/0 = ExtResource("5_mkjr3")
 
 [node name="border" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border"]
 shape = SubResource("BoxShape3D_da5nu")
 
 [node name="border2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="collision" type="CollisionShape3D" parent="border2"]
 shape = SubResource("BoxShape3D_da5nu")

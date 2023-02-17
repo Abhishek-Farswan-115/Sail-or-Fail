@@ -67,11 +67,12 @@ func generate_chunk() -> void:
 	
 	var mesh_instance := MeshInstance3D.new()
 	mesh_instance.mesh = surface_tool.commit()
-	mesh_instance.material_override = preload("res://Scenes/terrain/terrain_material.tres")
+	mesh_instance.material_override = preload("res://Scenes/terrain/shaders/terrain_material.tres")
 	add_child(mesh_instance)
 
 func height_for_position(x: float, z: float) -> float:
 	var h: float
 	h = (noise.get_noise_2d(x, z) * height_magnitude) + height_offset
 	h = h * smoothstep(0.2, 1.0, abs(x / 14.0))
+	h -= 1.0 - smoothstep(0.2, 1.0, abs(x / 5.0))
 	return h
