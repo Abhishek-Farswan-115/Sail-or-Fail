@@ -121,6 +121,16 @@ shortcut = SubResource("Shortcut_3dxwi")
 text = "START"
 icon_alignment = 1
 
+[node name="Settings_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("5_f7w8n")
+theme_override_font_sizes/font_size = 30
+shortcut = SubResource("Shortcut_3dxwi")
+text = "SETTINGS
+"
+icon_alignment = 1
+
 [node name="Quit_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
@@ -141,5 +151,7 @@ max_polyphony = 2
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Settings_button" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Settings_button" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer/Quit_button" to="." method="_on_quit_button_pressed"]
