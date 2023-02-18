@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm7liy7kfd6yw"]
+[gd_scene load_steps=12 format=3 uid="uid://cm7liy7kfd6yw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40gf5"]
 [ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_qkoix"]
+[ext_resource type="Texture2D" uid="uid://d0b3cjw3pkjpv" path="res://Resources/mm_env.png" id="2_dt2un"]
+[ext_resource type="Texture2D" uid="uid://v5lvv7i4l6lf" path="res://Resources/mm_boat.png" id="3_80d6w"]
 [ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="4_774le"]
 [ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="5_f7w8n"]
 [ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="5_h3w1m"]
@@ -32,14 +34,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40gf5")
 
-[node name="bg" type="ColorRect" parent="."]
+[node name="env_bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -30.0
+offset_right = 65.2
+offset_bottom = 34.8
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dt2un")
+expand_mode = 1
+
+[node name="boat_bg" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.172549, 0.172549, 0.172549, 1)
+texture = ExtResource("3_80d6w")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -64,14 +81,18 @@ alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = -500
+theme_override_constants/margin_left = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 100
-text = "SAIL OR FAIL"
+text = "    SAIL OR FAIL"
 label_settings = SubResource("LabelSettings_r775n")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -81,15 +102,19 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 750
 
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.172549, 0.172549, 0.172549, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Start_button" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 6
 theme = ExtResource("5_f7w8n")
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_3dxwi")

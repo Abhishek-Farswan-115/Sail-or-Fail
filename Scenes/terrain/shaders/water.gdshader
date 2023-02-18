@@ -43,15 +43,12 @@ void vertex() {
 }
 
 void fragment(){
-	// https://www.youtube.com/watch?v=Jq3he9Lbj7M
 	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
 	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
 	depth = depth + VERTEX.z;
 	depth = exp(-depth * beer_factor);
 	depth = 1.0 - depth;
 	
-	// Still unsure how to get properly the NORMAL from the camera
-	// this was my best attempt
 	vec3 existingNormal = vec3(dFdx(depth), dFdy(depth), 0);
 	
 	float normalDot = clamp(dot(existingNormal.xyz, viewNormal), 0.0, 1.0);
