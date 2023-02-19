@@ -23,6 +23,7 @@ Saver="*res://Scripts/saver.gd"
 [display]
 
 mouse_cursor/custom_image="res://Resources/Steer_icon.png"
+mouse_cursor/custom_image_hotspot=Vector2(64, 64)
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

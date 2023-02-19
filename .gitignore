@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 settings.tres
+builds
+export_presets.cfg
