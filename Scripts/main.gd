@@ -9,12 +9,12 @@ var use_sound: bool = true:
 var use_vibration: bool = true
 
 func _ready() -> void:
-	var save_settings :Settings = Saver.load_res("./settings.tres")
+	var save_settings :Settings = Saver.load_res("user://settings.res")
 	if save_settings:
 		use_sound = save_settings.use_sound
 		use_vibration = save_settings.use_vibration
 	
-	var gamedata : GameData = Saver.load_res("./gamedata.tres")
+	var gamedata : GameData = Saver.load_res("user://gamedata.res")
 	if gamedata:
 		highscore = gamedata.highscore
 		print(highscore)
@@ -31,11 +31,11 @@ func save_game() -> void:
 	var save_settings := Settings.new()
 	save_settings.use_sound = self.use_sound
 	save_settings.use_vibration = self.use_vibration
-	Saver.save_res(save_settings, "./settings.tres")
+	Saver.save_res(save_settings, "user://settings.res")
 	
 	var save_gamedata := GameData.new()
 	save_gamedata.highscore = self.highscore
-	Saver.save_res(save_gamedata, "./gamedata.tres")
+	Saver.save_res(save_gamedata, "user://gamedata.res")
 
 func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
