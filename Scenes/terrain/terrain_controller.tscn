@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://fehdbkbqq8lr"]
+[gd_scene load_steps=5 format=3 uid="uid://fehdbkbqq8lr"]
 
 [ext_resource type="Script" path="res://Scripts/terrain_controller.gd" id="1_n8r10"]
+[ext_resource type="PackedScene" uid="uid://dx6j5s7vl01ah" path="res://Scenes/terrain/terrain_blocks/terrain_block_02.tscn" id="2_rhh6o"]
+[ext_resource type="PackedScene" uid="uid://dpq0obb3u8dq8" path="res://Scenes/terrain/terrain_blocks/terrain_block_03.tscn" id="3_47auk"]
+[ext_resource type="PackedScene" uid="uid://ddlbgl2ewh8pk" path="res://Scenes/terrain/terrain_blocks/terrain_block_04.tscn" id="4_1ha8p"]
 
 [node name="terrain_controller" type="Node3D"]
 script = ExtResource("1_n8r10")
+terrain_blocks = Array[PackedScene]([ExtResource("2_rhh6o"), ExtResource("3_47auk"), ExtResource("4_1ha8p")])

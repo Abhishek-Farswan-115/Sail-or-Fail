@@ -5,6 +5,7 @@ class_name TerrainController extends Node3D
 @export var terrain_velocity: float = 12.0
 @export var num_terrain_blocks = 5
 @export_dir var terrian_blocks_path = "res://Scenes/terrain/terrain_blocks/"
+@export var terrain_blocks: Array[PackedScene]
 
 var TerrainBlocks: Array
 var terrain_belt: Array[TerrainBlock]
@@ -68,10 +69,12 @@ func _append_to_far_edge(target_block: TerrainBlock, appending_block: TerrainBlo
 	appending_block.position.z = target_block.position.z - target_block.size.z/2 - appending_block.size.z/2
 
 func _load_terrain_scenes(target_path: String) -> void:
-	var dir = DirAccess.open(target_path)
-	for scene_path in dir.get_files():
-		print("Loading terrian block scene: " + target_path + scene_path)
-		TerrainBlocks.append(load(target_path + scene_path))
+#	var dir = DirAccess.open(target_path)
+	TerrainBlocks = terrain_blocks
+	print("Loading terrian blocks")
+#	for scene_path in dir.get_files():
+#		print("Loading terrian block scene: " + target_path + scene_path)
+#		TerrainBlocks.append(load(target_path + scene_path))
 
 func _create_block(at_edge: bool, last: TerrainBlock, empty: bool = false, load_finisher: bool = false) -> TerrainBlock:
 	var block: TerrainBlock = TerrainBlocks.pick_random().instantiate() if !empty else preload("res://Scenes/terrain/terrain_block_01.tscn").instantiate()
