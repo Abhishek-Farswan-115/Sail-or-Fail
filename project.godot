@@ -18,10 +18,12 @@ run/max_fps=60
 [autoload]
 
 Loader="*res://Scripts/loader.gd"
+Saver="*res://Scripts/saver.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 

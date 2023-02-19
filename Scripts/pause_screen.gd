@@ -19,4 +19,4 @@ func _on_main_menu_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	clicked_sound.play()
 	await get_tree().create_timer(0.27).timeout
-	get_tree().quit()
+	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)

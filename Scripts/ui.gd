@@ -9,7 +9,8 @@ func _on_boat_lives_changed(new_lives: int) -> void:
 	$HBoxContainer2/lives.text = str(new_lives)
 
 func _on_boat_coins_changed(new_coins) -> void:
-	$HBoxContainer/coins.text = str(new_coins)
+	if $HBoxContainer/coins:
+		$HBoxContainer/coins.text = str(new_coins)
 
 func _on_boat_lives_lost() -> void:
 	for c in get_children(): c.queue_free()
@@ -20,12 +21,13 @@ func _on_boat_lives_lost() -> void:
 	
 	has_lost = true
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if pause_menu != null:
 			pause_menu.queue_free()
 			DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
 			get_parent().pause_game(false)
+		
 		elif !has_lost:
 			pause_menu = pause_menu_scene.instantiate()
 			add_child(pause_menu)

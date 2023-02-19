@@ -1,151 +1,115 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqc7kvbrvgbsf"]
+[gd_scene load_steps=8 format=3 uid="uid://b4d1nxdpdw2xv"]
 
-[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="1_v4eoq"]
-[ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="3_umwgt"]
-[ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="4_advsk"]
+[ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_6a34b"]
+[ext_resource type="Theme" uid="uid://crqddcmktcgn5" path="res://Scenes/UI/main_theme.tres" id="1_rgl0k"]
+[ext_resource type="SystemFont" uid="uid://i0jcaok61go0" path="res://Scenes/UI/new_system_font.tres" id="2_yhjnh"]
+[ext_resource type="AudioStream" uid="uid://s8uflfhf4vws" path="res://Resources/Sounds/switch.ogg" id="3_ro2pb"]
+[ext_resource type="AudioStream" uid="uid://dq6aqeo6p4gfs" path="res://Resources/Sounds/select.ogg" id="4_q0gcw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_nrkg6"]
-font = ExtResource("1_v4eoq")
-font_size = 60
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfiqt"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fbjj1"]
+font_size = 40
 font_color = Color(0.803922, 0.392157, 0.341176, 1)
 
-[node name="Settings" type="Node2D"]
-scale = Vector2(1.00177, 1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.219608, 0.219608, 0.219608, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = -500
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 100
-text = "Settings"
-label_settings = SubResource("LabelSettings_nrkg6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-color = Color(0.768627, 0.643137, 0.313726, 0.0823529)
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Resolution" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_v4eoq")
-theme_override_font_sizes/font_size = 20
-text = "Resolution"
-
-[node name="Sound" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_v4eoq")
-theme_override_font_sizes/font_size = 20
-text = "Sound FX"
-
-[node name="Music" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_v4eoq")
-theme_override_font_sizes/font_size = 20
-text = "Music"
-
-[node name="Vibration" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_v4eoq")
-theme_override_font_sizes/font_size = 20
-text = "Vibration"
-
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 22
-alignment = 1
-
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Sound" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Music" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Vibration" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+[node name="settings_root" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 910.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6a34b")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1000, 500)
 layout_mode = 2
-alignment = 2
+theme = ExtResource("1_rgl0k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jfiqt")
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_v4eoq")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yhjnh")
 theme_override_font_sizes/font_size = 50
-text = "Back
-"
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_fbjj1")
+horizontal_alignment = 1
 
-[node name="sound" type="Node" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 30
 
-[node name="button_hover_sound" type="AudioStreamPlayer" parent="CanvasLayer/sound"]
-stream = ExtResource("3_umwgt")
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="sound" type="CheckButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+text = "SOUND"
+alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="vib" type="CheckButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+text = "VIBRATION"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="back" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "BACK"
+
+[node name="sound" type="Node" parent="."]
+
+[node name="button_hover_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("3_ro2pb")
 max_polyphony = 2
+bus = &"UI"
 
-[node name="button_clicked_sound" type="AudioStreamPlayer" parent="CanvasLayer/sound"]
-stream = ExtResource("4_advsk")
+[node name="button_clicked_sound" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("4_q0gcw")
 max_polyphony = 2
+bus = &"UI"
+
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/sound" to="." method="_on_button_mouse_entered"]
+[connection signal="toggled" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3/sound" to="." method="_on_sound_toggled"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4/vib" to="." method="_on_button_mouse_entered"]
+[connection signal="toggled" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4/vib" to="." method="_on_vib_toggled"]
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]

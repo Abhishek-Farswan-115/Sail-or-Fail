@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	
 	position.z = default_position
 
-func _update_camera_shake(delta: float) -> void:
+func _update_camera_shake(delta: float) -> void:	
 	trauma = clamp(trauma - delta, 0.0, 1.0)
 	shake_offset.x = camera_noise.get_noise_3d(Time.get_ticks_msec(), 0.0, 0.0)
 	shake_offset.y = camera_noise.get_noise_3d(0.0, Time.get_ticks_msec(), 0.0)
@@ -94,7 +94,8 @@ func _update_camera_shake(delta: float) -> void:
 	shake_offset*=intensity
 
 func shake_camera(intensity: float, cap: float = 1.0) -> void:
-	trauma = clamp(trauma + intensity, 0.0, cap)
+	if get_tree().current_scene.use_vibration:
+		trauma = clamp(trauma + intensity, 0.0, cap)
 
 func _on_cd_body_entered(body: Node3D) -> void:
 	if body is Obstacle:
