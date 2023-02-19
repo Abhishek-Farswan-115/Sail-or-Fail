@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://bgtrbgftj655r"]
+
+[ext_resource type="Script" path="res://Scripts/gamedata.gd" id="1_pmhet"]
+
+[resource]
+script = ExtResource("1_pmhet")
+highscore = 2

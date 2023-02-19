@@ -1,5 +1,6 @@
 class_name Main extends Node
 
+var highscore: int
 var use_sound: bool = true:
 	set(val):
 		use_sound = val
@@ -13,6 +14,11 @@ func _ready() -> void:
 		use_sound = save_settings.use_sound
 		use_vibration = save_settings.use_vibration
 	
+	var gamedata : GameData = Saver.load_res("./gamedata.tres")
+	if gamedata:
+		highscore = gamedata.highscore
+		print(highscore)
+	
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	get_tree().set_auto_accept_quit(false)
 
@@ -21,10 +27,17 @@ func _input(_event: InputEvent) -> void:
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
+func save_game() -> void:
+	var save_settings := Settings.new()
+	save_settings.use_sound = self.use_sound
+	save_settings.use_vibration = self.use_vibration
+	Saver.save_res(save_settings, "./settings.tres")
+	
+	var save_gamedata := GameData.new()
+	save_gamedata.highscore = self.highscore
+	Saver.save_res(save_gamedata, "./gamedata.tres")
+
 func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		var save_settings = Settings.new()
-		save_settings.use_sound = self.use_sound
-		save_settings.use_vibration = self.use_vibration
-		Saver.save_res(save_settings, "./settings.tres")
+		save_game()
 		get_tree().quit()

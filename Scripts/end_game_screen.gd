@@ -11,10 +11,16 @@ func _ready() -> void:
 
 func set_coins(new_coins: int) -> void:
 	$MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/HBoxContainer/coins.text = str(new_coins)
+	
+	if coins > get_tree().current_scene.highscore:
+		get_tree().current_scene.highscore = coins
+	
+	$MarginContainer/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer2/HBoxContainer/highscore.text = str(get_tree().current_scene.highscore)
 
 func _on_menu_button_pressed() -> void:
 	clicked_sound.play()
 	await get_tree().create_timer(0.27).timeout
+	get_tree().current_scene.save_game()
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 func _on_retry_button_pressed() -> void:
