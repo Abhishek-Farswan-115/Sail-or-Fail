@@ -17,7 +17,6 @@ func _ready() -> void:
 	var gamedata : GameData = Saver.load_res("user://gamedata.res")
 	if gamedata:
 		highscore = gamedata.highscore
-		print(highscore)
 	
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	get_tree().set_auto_accept_quit(false)
