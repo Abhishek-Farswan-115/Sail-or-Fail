@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkg6l5aknvaol"]
+[gd_scene load_steps=11 format=3 uid="uid://bkg6l5aknvaol"]
 
 [ext_resource type="Script" path="res://Scripts/boat_player.gd" id="1_5qrm6"]
 [ext_resource type="PackedScene" uid="uid://dp8e135gq0ssq" path="res://Scenes/Game_scene/Boat.tscn" id="2_qjgo2"]
 [ext_resource type="AudioStream" uid="uid://dsofodsbsxgra" path="res://Resources/Sounds/coin_pickup.ogg" id="3_ub78n"]
 [ext_resource type="AudioStream" uid="uid://co8skyhvsp1ya" path="res://Resources/Sounds/error.ogg" id="4_1ejfo"]
 [ext_resource type="AudioStream" uid="uid://cuknsgbj2xf15" path="res://Resources/Sounds/boat_impact.ogg" id="4_y3sc2"]
+[ext_resource type="Texture2D" uid="uid://u5eigd7gikx0" path="res://Resources/transparentDark22.png" id="6_rkehj"]
+[ext_resource type="Texture2D" uid="uid://denl1m2oep0mx" path="res://Resources/transparentDark23.png" id="7_2310w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aihtd"]
 radius = 0.55
@@ -58,6 +60,25 @@ stream = ExtResource("4_1ejfo")
 [node name="damage_sound" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("4_y3sc2")
 max_polyphony = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="Left_button" type="TouchScreenButton" parent="Control"]
+position = Vector2(74, 430)
+scale = Vector2(1.925, 1.925)
+texture_normal = ExtResource("6_rkehj")
+action = "move_left"
+
+[node name="Right_button" type="TouchScreenButton" parent="Control"]
+position = Vector2(925, 430)
+scale = Vector2(1.925, 1.925)
+texture_normal = ExtResource("7_2310w")
+action = "move_right"
 
 [connection signal="body_entered" from="cd" to="." method="_on_cd_body_entered"]
 [connection signal="area_entered" from="ccd" to="." method="_on_ccd_area_entered"]

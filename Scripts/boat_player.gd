@@ -113,3 +113,11 @@ func _on_ccd_area_entered(area: Area3D) -> void:
 		area.queue_free()
 		coin_sound_streamplayer.pitch_scale = randf_range(1.0, 1.1)
 		coin_sound_streamplayer.play()
+
+
+func _on_left_button_pressed():
+	movement_input -= 1.0
+
+
+func _on_left_button_2_pressed():
+	movement_input += 1.0

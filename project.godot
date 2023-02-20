@@ -23,7 +23,7 @@ Saver="*res://Scripts/saver.gd"
 [display]
 
 mouse_cursor/custom_image="res://Resources/Steer_icon.png"
-mouse_cursor/custom_image_hotspot=Vector2(64, 64)
+mouse_cursor/custom_image_hotspot=Vector2(25, 25)
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -55,7 +55,3 @@ pause={
 [physics]
 
 common/max_physics_steps_per_frame=4
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
