@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0ita72rmh3ap"
 path.s3tc="res://.godot/imported/dsadsa_albedo.png-e59abe04a623b1f5cd6341936e1ce8b5.s3tc.ctex"
+path.etc2="res://.godot/imported/dsadsa_albedo.png-e59abe04a623b1f5cd6341936e1ce8b5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/terrain/custom_rock/dsadsa_albedo.png"
-dest_files=["res://.godot/imported/dsadsa_albedo.png-e59abe04a623b1f5cd6341936e1ce8b5.s3tc.ctex"]
+dest_files=["res://.godot/imported/dsadsa_albedo.png-e59abe04a623b1f5cd6341936e1ce8b5.s3tc.ctex", "res://.godot/imported/dsadsa_albedo.png-e59abe04a623b1f5cd6341936e1ce8b5.etc2.ctex"]
 
 [params]
 

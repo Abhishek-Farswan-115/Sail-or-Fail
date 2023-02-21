@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7wxwc7yehoel"
 path.s3tc="res://.godot/imported/Birch_1_Birch_Bark.png-844da6696dbe0100d9c7b071cc845283.s3tc.ctex"
+path.etc2="res://.godot/imported/Birch_1_Birch_Bark.png-844da6696dbe0100d9c7b071cc845283.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Tree/Birch_1_Birch_Bark.png"
-dest_files=["res://.godot/imported/Birch_1_Birch_Bark.png-844da6696dbe0100d9c7b071cc845283.s3tc.ctex"]
+dest_files=["res://.godot/imported/Birch_1_Birch_Bark.png-844da6696dbe0100d9c7b071cc845283.s3tc.ctex", "res://.godot/imported/Birch_1_Birch_Bark.png-844da6696dbe0100d9c7b071cc845283.etc2.ctex"]
 
 [params]
 

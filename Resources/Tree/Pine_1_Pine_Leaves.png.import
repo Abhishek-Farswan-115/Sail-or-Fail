@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://shdx0ei576hx"
 path.s3tc="res://.godot/imported/Pine_1_Pine_Leaves.png-d118cf7078c46bbc2a7890e4a544d222.s3tc.ctex"
+path.etc2="res://.godot/imported/Pine_1_Pine_Leaves.png-d118cf7078c46bbc2a7890e4a544d222.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Tree/Pine_1_Pine_Leaves.png"
-dest_files=["res://.godot/imported/Pine_1_Pine_Leaves.png-d118cf7078c46bbc2a7890e4a544d222.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pine_1_Pine_Leaves.png-d118cf7078c46bbc2a7890e4a544d222.s3tc.ctex", "res://.godot/imported/Pine_1_Pine_Leaves.png-d118cf7078c46bbc2a7890e4a544d222.etc2.ctex"]
 
 [params]
 

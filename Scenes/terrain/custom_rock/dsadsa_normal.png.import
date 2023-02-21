@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5n6qwldokb6w"
 path.s3tc="res://.godot/imported/dsadsa_normal.png-47eb5707eab7b6a8246e2183432bb8e2.s3tc.ctex"
+path.etc2="res://.godot/imported/dsadsa_normal.png-47eb5707eab7b6a8246e2183432bb8e2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/terrain/custom_rock/dsadsa_normal.png"
-dest_files=["res://.godot/imported/dsadsa_normal.png-47eb5707eab7b6a8246e2183432bb8e2.s3tc.ctex"]
+dest_files=["res://.godot/imported/dsadsa_normal.png-47eb5707eab7b6a8246e2183432bb8e2.s3tc.ctex", "res://.godot/imported/dsadsa_normal.png-47eb5707eab7b6a8246e2183432bb8e2.etc2.ctex"]
 
 [params]
 

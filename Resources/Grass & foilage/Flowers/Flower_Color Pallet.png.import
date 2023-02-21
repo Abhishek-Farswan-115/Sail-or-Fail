@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxvpv768lv7ln"
 path.s3tc="res://.godot/imported/Flower_Color Pallet.png-5ffec4d5b51d9c7ba27583928de518b9.s3tc.ctex"
+path.etc2="res://.godot/imported/Flower_Color Pallet.png-5ffec4d5b51d9c7ba27583928de518b9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Grass & foilage/Flowers/Flower_Color Pallet.png"
-dest_files=["res://.godot/imported/Flower_Color Pallet.png-5ffec4d5b51d9c7ba27583928de518b9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Flower_Color Pallet.png-5ffec4d5b51d9c7ba27583928de518b9.s3tc.ctex", "res://.godot/imported/Flower_Color Pallet.png-5ffec4d5b51d9c7ba27583928de518b9.etc2.ctex"]
 
 [params]
 

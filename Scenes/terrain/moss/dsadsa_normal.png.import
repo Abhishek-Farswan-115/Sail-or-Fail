@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwijn7jvdponv"
 path.s3tc="res://.godot/imported/dsadsa_normal.png-f75a72e34197a729aa895a95ddb9f76a.s3tc.ctex"
+path.etc2="res://.godot/imported/dsadsa_normal.png-f75a72e34197a729aa895a95ddb9f76a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/terrain/moss/dsadsa_normal.png"
-dest_files=["res://.godot/imported/dsadsa_normal.png-f75a72e34197a729aa895a95ddb9f76a.s3tc.ctex"]
+dest_files=["res://.godot/imported/dsadsa_normal.png-f75a72e34197a729aa895a95ddb9f76a.s3tc.ctex", "res://.godot/imported/dsadsa_normal.png-f75a72e34197a729aa895a95ddb9f76a.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cumyhcfhmgpcc"
 path.s3tc="res://.godot/imported/Flower3_Type 1 Flower.png-0a24f9c90daf4854c004e543bbd67feb.s3tc.ctex"
+path.etc2="res://.godot/imported/Flower3_Type 1 Flower.png-0a24f9c90daf4854c004e543bbd67feb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Grass & foilage/Flowers/Flower3_Type 1 Flower.png"
-dest_files=["res://.godot/imported/Flower3_Type 1 Flower.png-0a24f9c90daf4854c004e543bbd67feb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Flower3_Type 1 Flower.png-0a24f9c90daf4854c004e543bbd67feb.s3tc.ctex", "res://.godot/imported/Flower3_Type 1 Flower.png-0a24f9c90daf4854c004e543bbd67feb.etc2.ctex"]
 
 [params]
 

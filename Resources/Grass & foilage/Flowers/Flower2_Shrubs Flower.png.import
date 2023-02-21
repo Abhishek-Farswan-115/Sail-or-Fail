@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5pqpl8v4oivn"
 path.s3tc="res://.godot/imported/Flower2_Shrubs Flower.png-fa23df95f25d72c9defa5749a9270b00.s3tc.ctex"
+path.etc2="res://.godot/imported/Flower2_Shrubs Flower.png-fa23df95f25d72c9defa5749a9270b00.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Grass & foilage/Flowers/Flower2_Shrubs Flower.png"
-dest_files=["res://.godot/imported/Flower2_Shrubs Flower.png-fa23df95f25d72c9defa5749a9270b00.s3tc.ctex"]
+dest_files=["res://.godot/imported/Flower2_Shrubs Flower.png-fa23df95f25d72c9defa5749a9270b00.s3tc.ctex", "res://.godot/imported/Flower2_Shrubs Flower.png-fa23df95f25d72c9defa5749a9270b00.etc2.ctex"]
 
 [params]
 

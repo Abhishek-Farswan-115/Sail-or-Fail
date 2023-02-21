@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvnxypye6p8bg"
 path.s3tc="res://.godot/imported/STONE_BASIC_POLY_PALLETTE.png-311ef7925026c8bba95a3c54396f36d8.s3tc.ctex"
+path.etc2="res://.godot/imported/STONE_BASIC_POLY_PALLETTE.png-311ef7925026c8bba95a3c54396f36d8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Resources/Rocks/STONE_BASIC_POLY_PALLETTE.png"
-dest_files=["res://.godot/imported/STONE_BASIC_POLY_PALLETTE.png-311ef7925026c8bba95a3c54396f36d8.s3tc.ctex"]
+dest_files=["res://.godot/imported/STONE_BASIC_POLY_PALLETTE.png-311ef7925026c8bba95a3c54396f36d8.s3tc.ctex", "res://.godot/imported/STONE_BASIC_POLY_PALLETTE.png-311ef7925026c8bba95a3c54396f36d8.etc2.ctex"]
 
 [params]
 
